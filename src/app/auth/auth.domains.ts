@@ -14,6 +14,14 @@ export class Utilisateur {
 
   estAnonyme(): boolean {
     return this.email == undefined;
+    
   }
 
+  aLeRole(role:string) : boolean {
+    console.log(this)
+    if(this.roles.find(r => r === role))
+      return true;
+      else
+      return false;
+  }
 }

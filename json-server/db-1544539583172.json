@@ -1,0 +1,218 @@
+{
+  "produits": [
+    {
+      "reference": "1",
+      "nom": "TARAB",
+      "prix": "459.90",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "10",
+      "caracteristiques": {
+        "longueur": "119",
+        "largeur": "24",
+        "poids": "3900",
+        "empatement": [
+          "79.4",
+          "81.9"
+        ],
+        "largeur-roues": "42"
+      },
+      "marque": "LOADED",
+      "discipline": "DANCING",
+      "flex": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "reference": "2",
+      "nom": "BHANGRA",
+      "prix": "329.40",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "10",
+      "caracteristiques": {
+        "longueur": "123.20",
+        "largeur": "24.40",
+        "poids": "2540",
+        "empatement": "83,20",
+        "largeur-roues": "65"
+      },
+      "marque": "LOADED",
+      "discipline": "DANCING",
+      "flex": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "reference": "3",
+      "nom": "BUTO ODORI ZINGANA",
+      "prix": "536",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "2",
+      "caracteristiques": {
+        "longueur": "125",
+        "largeur": " 23",
+        "poids": "2500",
+        "empatement": [
+          "88"
+        ],
+        "largeur-roues": "65"
+      },
+      "marque": "MAJUSTSU",
+      "discipline": "DANCING",
+      "flex": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "reference": "4",
+      "nom": "BALLAR",
+      "prix": "350",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "5",
+      "caracteristiques": {
+        "longueur": "121.5",
+        "largeur": "24",
+        "poids": "2500",
+        "empatement": [
+          "77",
+          "83"
+        ],
+        "largeur-roues": "65"
+      },
+      "marque": "LUCA LONGBOARD",
+      "discipline": "DANCING",
+      "flex": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "reference": "5",
+      "nom": "RUM RUNNER CARBON",
+      "prix": "399.95",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "10",
+      "caracteristiques": {
+        "longueur": "88.9",
+        "largeur": "25.4",
+        "poids": "1900",
+        "empatement": [
+          "59.7",
+          "67.3"
+        ],
+        "largeur-roues": "70"
+      },
+      "marque": "MOONSHINE MFG",
+      "discipline": "DOWNHILL",
+      "flex": "1"
+    },
+    {
+      "reference": "6",
+      "nom": "OSTEON OBSERVER",
+      "prix": "329.00",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "10",
+      "caracteristiques": {
+        "longueur": "90",
+        "largeur": "23.8",
+        "poids": "2400",
+        "empatement": [
+          "61.5"
+        ],
+        "largeur-roues": "70"
+      },
+      "marque": "LANDYACHTZ",
+      "discipline": "DOWNHILL",
+      "flex": "1"
+    },
+    {
+      "reference": "7",
+      "nom": "TESSERACT CANTELATED",
+      "prix": "223.95",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "30",
+      "caracteristiques": {
+        "longueur": "84",
+        "largeur": "24",
+        "poids": "1800",
+        "empatement": [
+          "62",
+          "66"
+        ],
+        "largeur-roues": "70"
+      },
+      "marque": "LOADED",
+      "discipline": "DOWNHILL",
+      "flex": "1"
+    },
+    {
+      "reference": "8",
+      "nom": "OVERLAND",
+      "prix": "201.95",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "4",
+      "caracteristiques": {
+        "longueur": "94",
+        "largeur": "24",
+        "poids": "1600",
+        "empatement": [
+          "53",
+          "56"
+        ],
+        "largeur-roues": "60"
+      },
+      "marque": "LOADED",
+      "discipline": "FREESTYLE",
+      "flex": "1"
+    },
+    {
+      "reference": "9",
+      "nom": "CI FLYER MERRICK",
+      "prix": "159.00",
+      "photos": [
+        "",
+        ""
+      ],
+      "quantite": "7",
+      "caracteristiques": {
+        "longueur": "78.10",
+        "largeur": "24.75",
+        "poids": "1600",
+        "empatement": "",
+        "largeur-roues": "55"
+      },
+      "marque": "CARVER",
+      "discipline": "CRUISING",
+      "flex": "1"
+    }
+  ]
+}

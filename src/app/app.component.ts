@@ -10,8 +10,10 @@ import {Utilisateur} from './auth/auth.domains';
 @Component({
   selector: 'app-root',
   template: `
+  
     <div class="jumbotron">
       <h2 class="h1 h1-responsive">Super Application</h2>
+      <app-menu></app-menu>
       <div *ngIf="!(utilisateurConnecte | async).estAnonyme()">
         <span>{{(utilisateurConnecte | async).email}}</span>
         <span>({{(utilisateurConnecte | async).roles}})</span>

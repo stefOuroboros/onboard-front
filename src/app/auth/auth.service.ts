@@ -46,7 +46,7 @@ export class AuthService {
   /**
    * Service permettant de vérifier si un utilisateur est authentifié.
    *
-   * Une requête HTTP est déclenchée pour récupérer le collègue connecté s'il n'est pas en cache.
+   * Une requête HTTP est déclenchée pour récupérer l'utilisateur connecté s'il n'est pas en cache.
    *
    * @returns {Observable<Utilisateur>}
    */
@@ -54,8 +54,8 @@ export class AuthService {
     return this.utilisateurConnecteSub.getValue().estAnonyme() ?
             this._http.get<Utilisateur>(`${environment.baseUrl}${environment.apiAuthMe}`, {withCredentials: true})
                   .pipe(
-                    map(colServeur => new Utilisateur(colServeur)),
-                    tap(col => this.utilisateurConnecteSub.next(col)),
+                    map(userServeur => new Utilisateur(userServeur)),
+                    tap(user => this.utilisateurConnecteSub.next(user)),
                     catchError(err => of(UTILISATEUR_ANONYME))
                   ) :     of(this.utilisateurConnecteSub.getValue())
               ;
@@ -78,8 +78,7 @@ export class AuthService {
       })
     };
 
-    return this._http.post(`${environment.baseUrl}
-    ${environment.apiLogin}`, new HttpParams().set('username', email).set('password', mdp), config)
+    return this._http.post(`${environment.baseUrl}${environment.apiLogin}`, new HttpParams().set('username', email).set('password', mdp), config)
       .pipe(
         map(userServeur => new Utilisateur(userServeur)),
         tap(user => this.utilisateurConnecteSub.next(user) )

@@ -18,7 +18,9 @@
       <input [(ngModel)]="monForm.caracteristiques"  name="caracteristiques">
 
       <label for="marque">Marque :</label>
-      <input [(ngModel)]="monForm.marque"  name="marque">
+      <select [(ngModel)]="monForm.marque"  name="marque" class="form-control">
+        <option *ngFor="let mrq of marques" [value]="mrq.id"></option>
+      </select>
 
       <label for="discipline">Discipline :</label>
       <input [(ngModel)]="monForm.discipline"  name="discipline">

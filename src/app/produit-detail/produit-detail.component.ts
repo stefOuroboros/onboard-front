@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Marques, Produit } from '../models';
 
 @Component({
   selector: 'app-produit-detail',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./produit-detail.component.css']
 })
 export class ProduitDetailComponent implements OnInit {
-
+marques:Marques[]=[
+  0,1,2,3,4,5
+];
   constructor() { }
 
   ngOnInit() {

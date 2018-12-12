@@ -45,7 +45,7 @@ export class Caracteristiques {
   largeur: number;
   poids: number;
   empatement: number[];
-  largeurRoues: number;
+  largeurRoues: number[];
   constructor(params: any) {
     Object.assign(this, params);
   }
@@ -56,7 +56,8 @@ export class Caracteristiques {
   MAJUSTUS,
   LANDYATCHZ,
   MOONSHINE,
-  CARVER
+  CARVER,
+  LUCALONGBOARD
  }
 
  export enum Discipline {

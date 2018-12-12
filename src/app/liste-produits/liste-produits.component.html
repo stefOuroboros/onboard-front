@@ -1,0 +1,11 @@
+<div *ngFor="let prod of produits">
+  <!-- <p>"{{prod.reference}}", "{{prod.nom}}", {{prod.prix}}, "{{prod.photos}}", {{prod.quantite}}, new Caracteristiques(
+  {{prod.caracteristiques.longueur}}, {{prod.caracteristiques.largeur}}, {{prod.caracteristiques.poids}}, {{prod.caracteristiques.empatement}}, {{prod.caracteristiques.largeurRoues}}),
+   "{{prod.marque}}", "{{prod.discipline}}", {{prod.flex}}</p> -->
+
+  <p> Produit prod{{prod.reference}} = new Produit("{{prod.reference}}", "{{prod.nom}}", {{prod.prix}}, new String[]{{prod.photos}},
+   {{prod.quantite}}, this.caracteristiquesRepo.save(new Caracteristiques({{prod.caracteristiques.longueur}}, {{prod.caracteristiques.largeur}}, {{prod.caracteristiques.poids}}, {{prod.caracteristiques.empatement}}, {{prod.caracteristiques.largeurRoues}})), Marques.{{prod.marques}}, Discipline.{{prod.discipline}}, new int[]{{prod.flex}});
+        <br>this.produitRepo.save(prod{{prod.reference}});</p>
+
+  <br>
+</div>

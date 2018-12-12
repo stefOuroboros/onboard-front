@@ -45,7 +45,7 @@ export class Caracteristiques {
   largeur: number;
   poids: number;
   empatement: number[];
-  largeurRoues: number[];
+  largeurRoues: number;
   constructor(params: any) {
     Object.assign(this, params);
   }
@@ -54,7 +54,7 @@ export class Caracteristiques {
  export enum Marques {
   LOADED,
   MAJUSTUS,
-  LANDYATCH,
+  LANDYATCHZ,
   MOONSHINE,
   CARVER
  }

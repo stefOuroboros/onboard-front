@@ -32,8 +32,8 @@ const routes: Routes = [
     MenuComponent,
     ListeProduitsComponent,
     ProduitDetailComponent,
-    AccueilComponent
-
+    MenuComponent,
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,

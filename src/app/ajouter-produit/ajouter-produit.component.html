@@ -1,0 +1,39 @@
+<div>
+    <h1>Ajouter un produit</h1>
+    <form (ngSubmit)="submit()" #ProduitForm ="ngForm" class="form-control">
+      //Référence
+      <label for="reference">Référence :</label>
+      <input [(ngModel)]="monForm.reference"  name="reference" class="form-control">
+      //Nom
+      <label for="nom">Nom :</label>
+      <input [(ngModel)]="monForm.nom" name="nom" class="form-control">
+      //Prix
+      <label for="prix">Prix</label>
+      <input [(ngModel)]="monForm.prix" name="prix" class="form-control">
+      //Photos
+      <label for="photos">Photos :</label>
+      <input [(ngModel)]="monForm.photos"  name="photos" class="form-control">
+      //Quantité
+      <label for="quantite">Quantité :</label>
+      <input [(ngModel)]="monForm.quantite" name="quantite" class="form-control">
+      //Caractéristiques
+      <label for="caracteristiques">Caractéristiques :</label>
+      <input [(ngModel)]="monForm.caracteristiques"  name="caracteristiques" class="form-control">
+      //Marque
+      <label for="marque">Marque :</label>
+      <select [(ngModel)]="monForm.marque"  ng-options= "let mrq of marques" name="marque" class="form-control">
+        <option>{{mrq.}}</option>
+      </select>
+      //Discipline
+      <label for="discipline">Discipline :</label>
+      <select [(ngModel)]="monForm.discipline" ng-options="let disc of disciplines"  name="discipline" class="form-control">
+        <option>{{disc.}}</option>
+      </select>
+
+      //Flex
+      <label for="flex">Flex :</label>
+      <input [(ngModel)]="monForm.flex" name="flex" class="form-control">
+
+        <button type="submit">Submit</button>
+    </form>
+  </div>

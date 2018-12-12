@@ -14,6 +14,7 @@ import {StatutConnecteService} from './auth/statut-connecte.service';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import { MenuComponent } from './menu/menu.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
     ListeProduitsComponent,
     ProduitDetailComponent,
     MenuComponent,
-    AccueilComponent,
+    AccueilComponen,
+    AjouterProduitComponentt,
   ],
   imports: [
     BrowserModule,

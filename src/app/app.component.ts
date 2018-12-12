@@ -10,15 +10,14 @@ import {Utilisateur} from './auth/auth.domains';
 @Component({
   selector: 'app-root',
   template: `
-  
     <div class="jumbotron">
       <h2 class="h1 h1-responsive">Super Application</h2>
      
-      <div *ngIf="!(utilisateurConnecte | async).estAnonyme()">
-        <span>{{(utilisateurConnecte | async).email}}</span>
-        <span>({{(utilisateurConnecte | async).roles}})</span>
-        <app-menu [visiteur_courant]="utilisateurConnecte"></app-menu>
-        <a  class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a>
+      <div>
+        <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">{{(utilisateurConnecte | async).email}}</span>
+        <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">({{(utilisateurConnecte | async).roles}})</span>
+        <app-menu [obs_visiteur_courant]="utilisateurConnecte"></app-menu>
+        <a  class="btn btn-danger" (click)="seDeconnecter()" *ngIf="!(utilisateurConnecte | async).estAnonyme()">Se déconnecter</a>
       </div>
     </div>
     <router-outlet></router-outlet>

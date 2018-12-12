@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-auth',
   template: `
-
+    
     <mdb-card class="animated zoomIn">
       <mdb-card-header class="primary-color white-text">
         <h4 class="text-center">Authentification</h4>

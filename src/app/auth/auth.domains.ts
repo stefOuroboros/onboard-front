@@ -13,13 +13,13 @@ export class Utilisateur {
   }
 
   estAnonyme(): boolean {
-    return this.email == undefined;
+    return this.email == undefined || this.email=='';
     
   }
 
-  aLeRole(role:string) : boolean {
-    console.log(this)
-    if(this.roles.find(r => r === role))
+  public aLeRole(role:string) : boolean {
+    
+    if (this.roles && this.roles.find(r => r === role))
       return true;
       else
       return false;

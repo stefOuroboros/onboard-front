@@ -1,20 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TechComponent } from './tech/tech.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AuthComponent } from './auth/auth.component';
-
-import {FormsModule} from '@angular/forms';
-import {StatutConnecteService} from './auth/statut-connecte.service';
-import { MenuComponent } from './menu/menu.component';
-import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
 import { ProduitDetailComponent } from './produit-detail/produit-detail.component';
 import { ProduitsServices } from './services/produits.service';
+import {FormsModule} from '@angular/forms';
+import {StatutConnecteService} from './auth/statut-connecte.service';
+import {AuthInterceptorService} from './auth/auth-interceptor.service';
+import { MenuComponent } from './menu/menu.component';
 
 
 const routes: Routes = [
@@ -33,8 +31,7 @@ const routes: Routes = [
     AuthComponent,
     MenuComponent,
     ListeProduitsComponent,
-    ProduitDetailComponent
-
+    ProduitDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,17 +40,11 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     FormsModule
   ],
-  providers: [{
+  providers: [ProduitsServices, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true
-  },
-  {
-    provide: ProduitsServices,
-    useClass: ProduitsServices,
-    multi: true
-  }
-  ],
+  }],
 
   bootstrap: [AppComponent]
 })

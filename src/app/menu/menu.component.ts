@@ -35,7 +35,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class MenuComponent implements OnInit {
   @Input() obs_visiteur_courant:Observable<Utilisateur>;
   visiteur_courant:Utilisateur;
-  constructor() { 
+  constructor() {
     this.visiteur_courant = new Utilisateur({nom: "", prenom: "", email: "", motDePasse:"", roles: []});
   }
 

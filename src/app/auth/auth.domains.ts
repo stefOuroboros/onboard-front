@@ -13,7 +13,14 @@ export class Utilisateur {
   }
 
   estAnonyme(): boolean {
-    return this.email == undefined;
+    return this.email == undefined || this.email=='';
+
   }
 
+  public aLeRole(role: string): boolean {
+    if (this.roles && this.roles.find(r => r === role))
+      return true;
+      else
+      return false;
+  }
 }

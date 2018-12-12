@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import {StatutConnecteService} from './auth/statut-connecte.service';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import { MenuComponent } from './menu/menu.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
     AuthComponent,
     ListeProduitsComponent,
     ProduitDetailComponent,
-    MenuComponent
+    MenuComponent,
+    AccueilComponent,
   ],
   imports: [
     BrowserModule,

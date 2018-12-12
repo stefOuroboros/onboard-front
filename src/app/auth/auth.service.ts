@@ -78,6 +78,7 @@ export class AuthService {
       })
     };
 
+    // tslint:disable-next-line:max-line-length
     return this._http.post(`${environment.baseUrl}${environment.apiLogin}`, new HttpParams().set('username', email).set('password', mdp), config)
       .pipe(
         map(userServeur => new Utilisateur(userServeur)),

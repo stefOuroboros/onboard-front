@@ -7,9 +7,9 @@ import { Observable } from 'rxjs/internal/Observable';
   <div *ngIf= "visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">
     <nav>
       <ul>
-        <li><a href = "">Gestion des produits</a></li>
-        <li><a href = "">Commandes</a></li>
-        <li><a href = "">Profil</a></li>
+        <li><a routerLink = "/produits">Gestion des produits</a></li>
+        <li><a routerLink = "/commandes">Commandes</a></li>
+        <li><a routerLink = "/profil">Profil</a></li>
       </ul>
     </nav>
   </div>
@@ -17,7 +17,7 @@ import { Observable } from 'rxjs/internal/Observable';
   <div *ngIf= "visiteur_courant.aLeRole('ROLE_UTILISATEUR')">
     <nav>
       <ul>
-        <li><a href = "">Mon menu</a></li>
+        <li><a routerLink = "/menu">Mon menu</a></li>
       </ul>
     </nav>
   </div>
@@ -25,7 +25,7 @@ import { Observable } from 'rxjs/internal/Observable';
   <div *ngIf= "visiteur_courant.estAnonyme()">
   <nav>
     <ul>
-      <li><a href = "">Mon menu</a></li>
+      <li><a routerLink = "/menu">Mon menu</a></li>
     </ul>
   </nav>
 </div>

@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ProduitsServices } from '../services/produits.service';
-import { Produit } from '../models';
+import { ProduitFromJson } from '../models';
 
 @Component({
   selector: 'app-liste-produits',
   template: `
     <div *ngFor="let prod of produits">
-      <p>{{prod.nom}}</p>
+      <p>Nom : {{prod.nom}} Longueur :{{prod.caracteristiques.longueur}} cm</p>
     </div>
   `,
   styles: []
 })
 export class ListeProduitsComponent implements OnInit {
 
+  produits: ProduitFromJson[] = null;
+
   constructor(private _produitsServices: ProduitsServices) { }
 
-  produits: Produit[];
-
-  listerProduits() {
-    this._produitsServices.listerProduitsDepuisJson().subscribe(pJson => this.produits = pJson);
-  }
   ngOnInit() {
+    console.log('coucou');
+    this._produitsServices.listerProduitsDepuisJson()
+    .subscribe((produitData) => this.produits = produitData);
   }
-
 }

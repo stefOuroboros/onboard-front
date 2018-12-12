@@ -39,17 +39,11 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     FormsModule
   ],
-  providers: [{
+  providers: [ProduitsServices, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true
-  },
-  {
-    provide: ProduitsServices,
-    useClass: ProduitsServices,
-    multi: true
-  }
-  ],
+  }],
 
   bootstrap: [AppComponent]
 })

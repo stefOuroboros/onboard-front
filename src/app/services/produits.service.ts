@@ -1,12 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Produit } from '../models';
+import { ProduitFromJson } from '../models';
+import { Injectable } from '@angular/core';
+import { map, filter } from 'rxjs/operators';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class ProduitsServices {
+  private _url = 'http://localhost:3000/produits';
+
   constructor(private _http: HttpClient) { }
 
-  listerProduitsDepuisJson(): Observable<Produit[]> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this._http.get<Produit[]>('http://localhost:3000/produits', httpOptions);
+  listerProduitsDepuisJson(): Observable<ProduitFromJson[]> {
+    return this._http.get<ProduitFromJson[]>(this._url);
   }
 }

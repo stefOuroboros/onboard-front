@@ -3,34 +3,8 @@ import { Utilisateur } from '../auth/auth.domains';
 import { Observable } from 'rxjs/internal/Observable';
 @Component({
   selector: 'app-menu',
-  template: `
-  <div *ngIf= "visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">
-    <nav>
-      <ul>
-        <li><a routerLink = "/produits">Gestion des produits</a></li>
-        <li><a routerLink = "/commandes">Commandes</a></li>
-        <li><a routerLink = "/profil">Profil</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div *ngIf= "visiteur_courant.aLeRole('ROLE_UTILISATEUR')">
-    <nav>
-      <ul>
-        <li><a routerLink = "/menu">Mon menu</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div *ngIf= "visiteur_courant.estAnonyme()">
-  <nav>
-    <ul>
-      <li><a routerLink = "/menu">Mon menu</a></li>
-    </ul>
-  </nav>
-</div>
-  `,
-  styles: []
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
   @Input() obs_visiteur_courant:Observable<Utilisateur>;

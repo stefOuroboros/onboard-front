@@ -14,6 +14,8 @@ import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import { MenuComponent } from './menu/menu.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
+import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
+import { SearchGestionComponent } from './search-gestion/search-gestion.component';
 
 
 const routes: Routes = [
@@ -34,7 +36,9 @@ const routes: Routes = [
     ListeProduitsComponent,
     MenuComponent,
     AccueilComponent,
-    AjouterProduitComponent
+    AjouterProduitComponen,
+    GestionProduitComponent,
+    SearchGestionComponentt
   ],
   imports: [
     BrowserModule,

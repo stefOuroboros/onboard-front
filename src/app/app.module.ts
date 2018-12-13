@@ -19,7 +19,7 @@ import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.compo
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // /tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
-  { path: 'accueil', component: ListeProduitsComponent },
+  { path: 'accueil', component: AccueilComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   {path: 'produits/new', component: AjouterProduitComponent}
 ];

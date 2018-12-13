@@ -53,7 +53,7 @@ export class Caracteristiques {
 }
 
  export enum Marques {
-   Unset = 0,
+   CHOISIR = 0,
   LOADED = 1,
   MAJUSTUS = 2,
   LANDYATCHZ = 3,
@@ -63,7 +63,7 @@ export class Caracteristiques {
 }
 
  export enum Discipline {
-   Unset = 0,
+  CHOISIR = 0,
   DANCING = 1,
   CRUISING = 2,
   DOWNHILL = 3,

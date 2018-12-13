@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  {path: 'produits/new', component: AjouterProduitComponent}
+  {path: 'tech/produits/new', component: AjouterProduitComponent}
 ];
 
 

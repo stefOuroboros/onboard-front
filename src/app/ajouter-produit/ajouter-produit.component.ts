@@ -17,6 +17,8 @@ export class MonForm{
 
 
   flex:number;
+  description: any;
+  caracteristiques: any;
 }
 
 @Component({
@@ -28,13 +30,19 @@ export class AjouterProduitComponent implements OnInit {
   monForm:MonForm = new MonForm();
   keysMarque: string[];
   keysDiscipline: string[];
-  
+
   constructor(private _serv: ProduitsServices, private routerCol : Router) {
-    this.keysMarque = Object.keys(this.monForm.marques).filter(f=> !isNaN(Number(f)))
-    this.keysDiscipline = Object.keys(this.monForm.disciplines).filter(f=> !isNaN(Number(f)))
+    this.keysMarque = Object.keys(this.monForm.marques).filter(m=> !isNaN(Number(m)))
+    this.keysDiscipline = Object.keys(this.monForm.disciplines).filter(d=> !isNaN(Number(d)))
+   }
+
+   submit(){
+    this._serv.ajouterUnProduit(this.monForm.reference,this.monForm.nom,this.monForm.prix,this.monForm.quantite,this.monForm.photos,this.monForm.caracteristiques,this.monForm.marques,this.monForm.flex,this.monForm.description)
+    .then(()=>this.routerCol.navigate(["accueil"]));
    }
 
   ngOnInit() {
   }
+
 
 }

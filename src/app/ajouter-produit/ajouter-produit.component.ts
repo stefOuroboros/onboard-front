@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Marques, Discipline } from '../models';
+import { Marque, Discipline } from '../models';
 import { Router } from '@angular/router';
 import { ProduitsServices } from '../services/produits.service';
 
@@ -10,13 +10,14 @@ export class MonForm{
   photos:string;
   quantite:number;
 
-  marques=Marques;
+
+  marque=Marque;
 
 //recuperation de discipline
   disciplines=Discipline;
 
 
-  flex:number;
+  flex:number[];
   description: any;
   caracteristiques: any;
 }
@@ -32,14 +33,14 @@ export class AjouterProduitComponent implements OnInit {
   keysDiscipline: string[];
 
   constructor(private _serv: ProduitsServices, private routerCol : Router) {
-    this.keysMarque = Object.keys(this.monForm.marques).filter(m=> !isNaN(Number(m)))
+    this.keysMarque = Object.keys(this.monForm.marque).filter(m=> !isNaN(Number(m)))
     this.keysDiscipline = Object.keys(this.monForm.disciplines).filter(d=> !isNaN(Number(d)))
    }
 
-   submit(){
-    this._serv.ajouterUnProduit(this.monForm.reference,this.monForm.nom,this.monForm.prix,this.monForm.quantite,this.monForm.photos,this.monForm.caracteristiques,this.monForm.marques,this.monForm.flex,this.monForm.description)
-    .then(()=>this.routerCol.navigate(["accueil"]));
-   }
+  //  submit(){
+  //   this._serv.ajouterUnProduit(this.monForm.reference,this.monForm.nom,this.monForm.prix,this.monForm.quantite,this.monForm.photos,this.monForm.caracteristiques,this.monForm.marque,this.monForm.description,this.monForm.flex)
+  //   .then(()=>this.routerCol.navigate(["accueil"]));
+  //  }
 
   ngOnInit() {
   }

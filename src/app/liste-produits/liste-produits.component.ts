@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProduitsServices } from '../services/produits.service';
-import { ProduitFromJson } from '../models';
+import { ProduitFromJson, Produit } from '../models';
 
 @Component({
   selector: 'app-liste-produits',
@@ -9,12 +9,12 @@ import { ProduitFromJson } from '../models';
 })
 export class ListeProduitsComponent implements OnInit {
 
-  @Input() produits: ProduitFromJson[] = null;
+  @Input() produits: Produit[] = null;
 
   constructor(private _produitsServices: ProduitsServices) { }
 
   ngOnInit() {
-    this._produitsServices.listerProduitsDepuisJson()
+    this._produitsServices.listerProduits()
     .subscribe((produitData) => this.produits = produitData);
   }
 }

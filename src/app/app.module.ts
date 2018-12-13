@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: ListeProduitsComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  {path: 'produits/new', component: AjouterProduitComponent}
+  {path: 'tech/produits/new', component: AjouterProduitComponent}
 ];
 
 

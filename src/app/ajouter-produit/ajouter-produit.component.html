@@ -21,15 +21,15 @@
       <input [(ngModel)]="monForm.caracteristiques"  name="caracteristiques" class="form-control">
       <!--Marque-->
       <label for="marque">Marque :</label>
-      <select>
-        <option *ngFor="let keyMarque of keys" [value]="keyMarque" [label]="monForm.marques[keyMarque]"></option>
+      <select class="form-control">
+        <option *ngFor="let key of keysMarque" [value]="key" [label]="monForm.marques[key]"></option>
       </select>
   
 
       <!--Discipline-->
       <label for="discipline">Discipline :</label>
-      <select>
-        <option *ngFor="let keyDiscipline of keys" [value]="keyDiscipline" [label]="monForm.marques[keyDiscipline]"></option>
+      <select class="form-control">
+        <option *ngFor="let key of keysDiscipline" [value]="key" [label]="monForm.disciplines[key]"></option>
       </select>
 
 

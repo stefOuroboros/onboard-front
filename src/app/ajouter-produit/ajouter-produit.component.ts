@@ -30,8 +30,8 @@ export class AjouterProduitComponent implements OnInit {
   keysDiscipline: string[];
   
   constructor(private _serv: ProduitsServices, private routerCol : Router) {
-    this.keysMarque = Object.keys(this.monForm.marques).filter(f=> !isNaN(Number(f)))
-    this.keysDiscipline = Object.keys(this.monForm.disciplines).filter(f=> !isNaN(Number(f)))
+    this.keysMarque = Object.keys(this.monForm.marques).filter(m=> !isNaN(Number(m)))
+    this.keysDiscipline = Object.keys(this.monForm.disciplines).filter(d=> !isNaN(Number(d)))
    }
 
   ngOnInit() {

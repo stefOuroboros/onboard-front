@@ -8,11 +8,11 @@ import { map, filter } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ProduitsServices {
-  private _url = 'http://localhost:3000/produits';
+  private _urlJson = 'http://localhost:3000/produits';
 
   constructor(private _http: HttpClient) { }
 
   listerProduitsDepuisJson(): Observable<ProduitFromJson[]> {
-    return this._http.get<ProduitFromJson[]>(this._url);
+    return this._http.get<ProduitFromJson[]>(this._urlJson);
   }
 }

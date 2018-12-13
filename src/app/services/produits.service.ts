@@ -15,4 +15,8 @@ export class ProduitsServices {
   listerProduitsDepuisJson(): Observable<ProduitFromJson[]> {
     return this._http.get<ProduitFromJson[]>(this._url);
   }
+
+  ajouterUnProduit(){
+    return
+  }
 }

@@ -7,7 +7,6 @@ import { TechComponent } from './tech/tech.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AuthComponent } from './auth/auth.component';
 import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
-import { ProduitDetailComponent } from './produit-detail/produit-detail.component';
 import { ProduitsServices } from './services/produits.service';
 import {FormsModule} from '@angular/forms';
 import {StatutConnecteService} from './auth/statut-connecte.service';
@@ -21,7 +20,8 @@ const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // /tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: ListeProduitsComponent },
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' }
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  {path: 'produits/new', component: AjouterProduitComponent}
 ];
 
 
@@ -32,10 +32,9 @@ const routes: Routes = [
     AuthComponent,
     MenuComponent,
     ListeProduitsComponent,
-    ProduitDetailComponent,
     MenuComponent,
-    AccueilComponen,
-    AjouterProduitComponentt,
+    AccueilComponent,
+    AjouterProduitComponent
   ],
   imports: [
     BrowserModule,

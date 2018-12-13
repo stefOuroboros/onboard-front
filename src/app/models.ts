@@ -6,7 +6,7 @@ export class Produit {
   quantite: number;
   caracteristiques: Caracteristiques;
   description: string;
-  marques: Marques;
+  marque: Marque;
   discipline: Discipline;
   flex: number[];
 
@@ -22,19 +22,19 @@ export class ProduitFromJson {
   photos: string[];
   quantite: number;
   caracteristiques: Caracteristiques;
-  marques: Marques;
+  marque: Marque;
   discipline: Discipline;
   flex: number[];
 
   // tslint:disable-next-line:max-line-length
-  constructor(reference: string, nom: string, prix: number, photos: string[], quantite: number, caracteristiques: Caracteristiques, marques: Marques, discipline: Discipline, flex: number[]) {
+  constructor(reference: string, nom: string, prix: number, photos: string[], quantite: number, caracteristiques: Caracteristiques, marque: Marque, discipline: Discipline, flex: number[]) {
     this.reference = reference;
     this.nom = nom;
     this.prix = prix;
     this.photos = photos;
     this.quantite = quantite;
     this.caracteristiques = caracteristiques;
-    this.marques = marques;
+    this.marque = marque;
     this.discipline = discipline;
     this.flex = flex;
   }
@@ -52,7 +52,7 @@ export class Caracteristiques {
   }
 }
 
- export enum Marques {
+ export enum Marque {
    CHOISIR = 0,
   LOADED = 1,
   MAJUSTUS = 2,

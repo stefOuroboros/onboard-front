@@ -31,6 +31,7 @@
 
           <label for="empatement">Empatement :</label>
           
+          
           <input [(ngModel)]="monForm.empatement" name="empatement" class="form-control">
       
           <label for="largeur-roues">Largeur des roues :</label>
@@ -38,7 +39,7 @@
       <!--Marque-->
       <label for="marque">Marque :</label>
       <select class="form-control">
-        <option *ngFor="let key of keysMarque" [value]="key" [label]="monForm.marques[key]"></option>
+        <option *ngFor="let key of keysMarque" [value]="key" [label]="monForm.marque[key]"></option>
       </select>
   
 

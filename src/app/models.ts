@@ -46,23 +46,26 @@ export class Caracteristiques {
   largeur: number;
   poids: number;
   empatement: number[];
-  largeurRoues: number;
+  largeurRoues: number[];
   constructor(params: any) {
     Object.assign(this, params);
   }
 }
 
  export enum Marques {
-  LOADED,
-  MAJUSTUS,
-  LANDYATCHZ,
-  MOONSHINE,
-  CARVER
- }
+   Unset = 0,
+  LOADED = 1,
+  MAJUSTUS = 2,
+  LANDYATCHZ = 3,
+  MOONSHINE = 4,
+  CARVER = 5,
+  LUCALONGBOARD = 6
+}
 
  export enum Discipline {
-  DANCING,
-  CRUISING,
-  DOWNHILL,
-  FREESTYLE
+   Unset = 0,
+  DANCING = 1,
+  CRUISING = 2,
+  DOWNHILL = 3,
+  FREESTYLE = 4
  }

@@ -1,0 +1,38 @@
+<div>
+    <h1>Ajouter un produit</h1>
+    <form (ngSubmit)="submit()" #ProduitForm ="ngForm">
+      <!--Référence-->
+      <label for="reference">Référence :</label>
+      <input [(ngModel)]="monForm.reference"  name="reference" class="form-control">
+      <!--Nom-->
+      <label for="nom">Nom :</label>
+      <input [(ngModel)]="monForm.nom" name="nom" class="form-control">
+      <!--Prix-->
+      <label for="prix">Prix</label>
+      <input [(ngModel)]="monForm.prix" name="prix" class="form-control">
+      <!--Photos-->
+      <label for="photos">Photos :</label>
+      <input [(ngModel)]="monForm.photos"  name="photos" class="form-control">
+      <!--Quantité-->
+      <label for="quantite">Quantité :</label>
+      <input [(ngModel)]="monForm.quantite" name="quantite" class="form-control">
+      <!--Caractéristiques-->
+      <label for="caracteristiques">Caractéristiques :</label>
+      <input [(ngModel)]="monForm.caracteristiques"  name="caracteristiques" class="form-control">
+      <!--Marque-->
+      <label for="marque">Marque :</label>
+      <select>
+        <option *ngFor="let keyMarque of keys" [value]="keyMarque" [label]="monForm.marques[keyMarque]"></option>
+      </select>
+  
+
+      <!--Discipline-->
+      <label for="discipline">Discipline :</label>
+      <select>
+        <option *ngFor="let keyDiscipline of keys" [value]="keyDiscipline" [label]="monForm.marques[keyDiscipline]"></option>
+      </select>
+
+
+        <button type="submit">Créer</button>
+    </form>
+  </div>

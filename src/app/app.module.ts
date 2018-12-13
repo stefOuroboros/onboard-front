@@ -36,9 +36,9 @@ const routes: Routes = [
     ListeProduitsComponent,
     MenuComponent,
     AccueilComponent,
-    AjouterProduitComponen,
+    AjouterProduitComponent,
     GestionProduitComponent,
-    SearchGestionComponentt
+    SearchGestionComponent
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,9 @@
       <input [(ngModel)]="monForm.quantite" name="quantite" class="form-control">
       <!--Caractéristiques-->
       <label for="caracteristiques">Caractéristiques :</label>
+      <label for="quantite">Longueur :</label>
+      <input [(ngModel)]="monForm.longueur" name="longueur" class="form-control">
+      
       <input [(ngModel)]="monForm.caracteristiques"  name="caracteristiques" class="form-control">
       <!--Marque-->
       <label for="marque">Marque :</label>
@@ -31,6 +34,12 @@
       <select class="form-control">
         <option *ngFor="let key of keysDiscipline" [value]="key" [label]="monForm.disciplines[key]"></option>
       </select>
+
+      <label for="flex">Flex :</label>
+      <input [(ngModel)]="monForm.flex"  name="flex" class="form-control">
+
+          <label for="description">Description</label>
+        <textarea type="text" id="description" class="md-textarea md-textarea-auto form-control" name="description" mdbInputDirective></textarea>
 
 
         <button type="submit">Créer</button>

@@ -11,6 +11,7 @@ import { MonForm } from '../ajouter-produit/ajouter-produit.component';
 export class ProduitsServices {
   private _urlJson = 'http://localhost:3000/produits';
   private _url = 'http://localhost:8080/produits';
+
   constructor(private _http: HttpClient) { }
 
   listerProduitsDepuisJson(): Observable<ProduitFromJson[]> {
@@ -21,4 +22,7 @@ export class ProduitsServices {
     return this._http.post(this._url.concat("/new/"),{ "reference":reference, "nom":nom, "prix":prix, "quantite":quantite,"photos":photo,"caracteristiques":caracteristiques,"marques":marques,"flex":flex,"description":description },
     {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then((c:MonForm)=>c);
   }
+
+  
+
 }

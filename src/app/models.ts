@@ -5,6 +5,7 @@ export class Produit {
   photos: string[];
   quantite: number;
   caracteristiques: Caracteristiques;
+  description: string;
   marques: Marques;
   discipline: Discipline;
   flex: number[];

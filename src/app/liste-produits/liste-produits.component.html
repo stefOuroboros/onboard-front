@@ -1,3 +1,10 @@
 <div *ngFor="let prod of produits">
+  <p>===========</p>
   <p>{{prod.nom}}</p>
+  <p>{{prod.reference}}</p>
+  <p>{{prod.marque}}</p>
+  <p>{{prod.discipline}}</p>
+  <p>{{prod.caracteristiques.longueur}} cm</p>
+  <p>{{prod.caracteristiques.largeur}} cm</p>
+  <p>{{prod.caracteristiques.poids}} grammes</p>
 </div>

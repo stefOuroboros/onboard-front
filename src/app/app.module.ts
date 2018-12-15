@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'produits/new', component: AjouterProduitComponent }
 ];
 
@@ -45,7 +46,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    FormsModule,
   ],
   providers: [ProduitsServices, {
     provide: HTTP_INTERCEPTORS,

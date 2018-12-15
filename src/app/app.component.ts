@@ -24,7 +24,6 @@ import {Utilisateur} from './auth/auth.domains';
       <router-outlet ></router-outlet>
     <div>
     <app-accueil></app-accueil>
-    <app-liste-produits></app-liste-produits>
   `,
   styles: []
 })

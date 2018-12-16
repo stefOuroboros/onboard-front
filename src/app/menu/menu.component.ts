@@ -14,10 +14,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Début");
-    console.log(this.visiteur_courant);
     this.obs_visiteur_courant.subscribe(utilisateur => this.visiteur_courant=utilisateur);
-    console.log("Fin");
   }
 
 }

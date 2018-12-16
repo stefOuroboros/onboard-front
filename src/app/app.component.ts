@@ -13,7 +13,7 @@ import {Utilisateur} from './auth/auth.domains';
     <div style="padding-top:80px">
       <div class="jumbotron">
         <h2 class="h1 h1-responsive">Super Application</h2>
-      
+
         <div>
           <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">{{(utilisateurConnecte | async).email}}</span>
           <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">({{(utilisateurConnecte | async).roles}})</span>
@@ -23,6 +23,8 @@ import {Utilisateur} from './auth/auth.domains';
       </div>
       <router-outlet ></router-outlet>
     <div>
+    <app-accueil></app-accueil>
+    <app-liste-produits></app-liste-produits>
   `,
   styles: []
 })

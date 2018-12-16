@@ -1,7 +1,7 @@
 <header>
     <div *ngIf="visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="/accueil"><strong>OnBoard</strong></a>
+            <a class="navbar-brand" routerLink="/accueil"><strong>OnBoard</strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -9,10 +9,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink = "tech/produits">Gestion des produits</a>
+                        <a class="nav-link" routerLink = "/produits">Gestion des produits</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" routeurLink = "tech/produits/new">Créer un produit</a>
+                        <a class="nav-link" routeurLink = "/produits/new">Créer un produit</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink = "/commandes">Commandes</a>
@@ -27,7 +27,7 @@
 
     <div *ngIf="visiteur_courant.aLeRole('ROLE_UTILISATEUR')">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="/accueil"><strong>OnBoard</strong></a>
+            <a class="navbar-brand" routerLink="/accueil"><strong>OnBoard</strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,18 +53,18 @@
 
     <div *ngIf="visiteur_courant.estAnonyme()">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="/accueil"><strong>OnBoard</strong></a>
+            <a class="navbar-brand" routerLink="/accueil"><strong>OnBoard</strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/auth">Profil</a>
                         <ul class="navbar-nav mr-auto"><button>Panier</button></ul>
-                    </li> 
+                    </li>
                 </ul>
             </div>
         </nav>

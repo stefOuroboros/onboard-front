@@ -1,6 +1,6 @@
 <div>
     <h1>Ajouter un produit</h1>
-    <form (ngSubmit)="submit()" #monForm ="ngForm">
+    <form (ngSubmit)="submit()" #ProduitForm ="ngForm">
       <!--Référence-->
       <label for="reference">Référence :</label>
       <input [(ngModel)]="monForm.reference"  name="reference" class="form-control">

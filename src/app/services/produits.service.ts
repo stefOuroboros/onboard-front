@@ -22,9 +22,15 @@ export class ProduitsServices {
     return this._http.get<Produit[]>(URL_BACKEND);
   }
 
-  ajouterUnProduit(reference:string, nom :string, prix:number, photo:string,quantite:number,longueur:number,largeur:number,poids:number,largeurRoues:number,empatement:number,marque:Marque,discipline:Discipline,description:string,actif:boolean):void {
+  ajouterUnProduit(reference:string, nom :string, prix:number, photo:string,quantite:number,longueur:number,
+    largeur:number,poids:number,largeurRoues:number,empatement:number,marque:Marque,discipline:Discipline,
+    description:string,actif:boolean):void {
     const URL_BACKEND = environment.baseUrl + 'produits';
-   this._http.post(URL_BACKEND.concat("/new"),{ "reference":reference, "nom":nom, "prix":prix, "photos":photo,"quantite":quantite,"longueur":longueur,"largeur":largeur,"poids":poids,"largeurRoues":largeurRoues,"empatement":empatement,"marque":marque,"discipline":discipline,"description":description,"actif":actif },
+    console.log(nom)
+   this._http.post(URL_BACKEND.concat("/new"),{ "reference":reference, "nom":nom, "prix":prix, 
+   "photos":photo,"quantite":quantite,"longueur":longueur,"largeur":largeur,"poids":poids,
+   "largeurRoues":largeurRoues,"empatement":empatement,"marque":marque,"discipline":discipline,
+   "description":description,"actif":actif },
     {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response), error => console.log("Erreur", error));
   }
 

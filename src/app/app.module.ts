@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // /tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
-  { path: 'new', component: AjouterProduitComponent ,canActivate: [StatutConnecteService]},
+  { path: 'new', component: AjouterProduitComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
   
 ];

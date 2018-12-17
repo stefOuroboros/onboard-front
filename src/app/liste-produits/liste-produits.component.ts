@@ -17,4 +17,8 @@ export class ListeProduitsComponent implements OnInit {
     this._produitsServices.listerProduits()
     .subscribe((produitData) => this.produits = produitData);
   }
+
+  delete(produitASupprimer:Produit){
+    this.produits.splice(this.produits.findIndex(p => p === produitASupprimer),1)
+  }
 }

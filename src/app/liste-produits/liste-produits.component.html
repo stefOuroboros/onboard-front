@@ -1,11 +1,15 @@
 <div *ngFor="let prod of produits">
   
   <p>===========</p>
-  <p>{{prod.nom}} <button (click)="modify()">Modifier</button></p>
+  <p>{{prod.nom}}</p>
   <p>{{prod.reference}}</p>
   <p>{{prod.marque}}</p>
   <p>{{prod.discipline}}</p>
   <p>{{prod.longueur}} cm</p>
   <p>{{prod.largeur}} cm</p>
   <p>{{prod.poids}} grammes</p>
+  <button (click)="modify()">Modifier</button>
+  
+  <button (click)="delete(prod)">Supprimer</button>
+
 </div>

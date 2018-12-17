@@ -25,7 +25,7 @@ export class SearchGestionComponent implements OnInit {
         'label': 'discipline'
       },
 
-          _config.customDomainsAsyncFn['discipline'] = (observable, viewModel, produit: Produit) => {
+      _config.customDomainsAsyncFn['discipline'] = (observable, viewModel, produit: Produit) => {
         return observable
           .switchMap((term) => {
             return this.service.listerProduits

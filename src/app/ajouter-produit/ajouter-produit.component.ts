@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Marque, Discipline } from '../models';
 import { Router } from '@angular/router';
 import { ProduitsServices } from '../services/produits.service';
@@ -9,17 +9,15 @@ export class MonForm{
   prix:number;
   photos:string;
   quantite:number;
-
-
-  marque=Marque;
-
-//recuperation de discipline
-  disciplines=Discipline;
-
-
-  flex:number[];
-  description: any;
-  caracteristiques: any;
+  longueur:number;
+  largeur:number;
+  poids:number;
+  largeurRoues:number;
+  empatement:number;
+  marque:Marque;
+  discipline:Discipline;
+  description: string;
+  actif:boolean;
 }
 
 @Component({
@@ -28,19 +26,26 @@ export class MonForm{
   styleUrls: ['./ajouter-produit.component.css']
 })
 export class AjouterProduitComponent implements OnInit {
-  monForm:MonForm = new MonForm();
-  keysMarque: string[];
+  monForm:MonForm;
+  keys: string[];
   keysDiscipline: string[];
+  @Input() marques = Marque;
+  @Input() disciplines = Discipline
+
 
   constructor(private _serv: ProduitsServices, private routerCol : Router) {
-    this.keysMarque = Object.keys(this.monForm.marque).filter(m=> !isNaN(Number(m)))
-    this.keysDiscipline = Object.keys(this.monForm.disciplines).filter(d=> !isNaN(Number(d)))
+    this.monForm = new MonForm()
+    this.keys = Object.keys(this.marques).filter(m=> !isNaN(Number(m)))
+    this.keysDiscipline = Object.keys(this.disciplines).filter(d=> !isNaN(Number(d)))
+    console.log(this.keys);
+    
    }
 
-  //  submit(){
-  //   this._serv.ajouterUnProduit(this.monForm.reference,this.monForm.nom,this.monForm.prix,this.monForm.quantite,this.monForm.photos,this.monForm.caracteristiques,this.monForm.marque,this.monForm.description,this.monForm.flex)
-  //   .then(()=>this.routerCol.navigate(["accueil"]));
-  //  }
+   submit(){
+    this._serv.ajouterUnProduit(this.monForm.reference, this.monForm.nom,this.monForm.prix,this.monForm.photos,
+      this.monForm.quantite,this.monForm.longueur,this.monForm.largeur,this.monForm.poids,this.monForm.largeurRoues,
+      this.monForm.empatement,this.monForm.marque,this.monForm.discipline,this.monForm.description,this.monForm.actif);
+   }
 
   ngOnInit() {
   }

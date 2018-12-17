@@ -53,19 +53,18 @@ export class Caracteristiques {
 }
 
  export enum Marque {
-   CHOISIR = 0,
-  LOADED = 1,
-  MAJUSTUS = 2,
-  LANDYATCHZ = 3,
-  MOONSHINE = 4,
-  CARVER = 5,
-  LUCALONGBOARD = 6
+
+  LOADED = 0,
+  MAJUSTUS = 1,
+  LANDYATCHZ = 2,
+  MOONSHINE = 3,
+  CARVER = 4,
+  LUCALONGBOARD = 5
 }
 
  export enum Discipline {
-  CHOISIR = 0,
-  DANCING = 1,
-  CRUISING = 2,
-  DOWNHILL = 3,
-  FREESTYLE = 4
+  DANCING = 0,
+  CRUISING = 1,
+  DOWNHILL = 2,
+  FREESTYLE = 3
  }

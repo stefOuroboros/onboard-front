@@ -24,8 +24,8 @@ const routes: Routes = [
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
-  { path: 'produits/new', component: AjouterProduitComponent },
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: 'new', component: AjouterProduitComponent},
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];
 

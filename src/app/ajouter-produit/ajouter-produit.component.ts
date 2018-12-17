@@ -16,7 +16,7 @@ export class MonForm{
   empatement:number;
   marque:Marque;
   discipline:Discipline;
-  description: string;
+  description:string;
   actif:boolean;
 }
 
@@ -42,6 +42,7 @@ export class AjouterProduitComponent implements OnInit {
    }
 
    submit(){
+     console.log(this.monForm.marque);
     this._serv.ajouterUnProduit(this.monForm.reference, this.monForm.nom,this.monForm.prix,this.monForm.photos,
       this.monForm.quantite,this.monForm.longueur,this.monForm.largeur,this.monForm.poids,this.monForm.largeurRoues,
       this.monForm.empatement,this.monForm.marque,this.monForm.discipline,this.monForm.description,this.monForm.actif);

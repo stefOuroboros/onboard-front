@@ -1,6 +1,6 @@
 <div>
     <h1>Ajouter un produit</h1>
-    <form (ngSubmit)="submit()" #monForm ="ngForm">
+    <form (ngSubmit)="submit()" #ProduitForm ="ngForm">
       <!--Référence-->
       <label for="reference">Référence :</label>
       <input [(ngModel)]="monForm.reference"  name="reference" class="form-control">
@@ -36,20 +36,20 @@
 
       <!--Marque-->
       <label for="marques">Marque :</label>
-      <select class="form-control">
+      <select class="form-control" [(ngModel)] = "monForm.marque" name="marque">
         <option *ngFor="let key of keys" [value]="key" [label]="marques[key]">{{marques[key]}}</option>
       </select>
   
 
       <!--Discipline-->
       <label for="discipline">Discipline :</label>
-      <select class="form-control">
+      <select class="form-control" [(ngModel)] = "monForm.discipline" name="discipline">
         <option *ngFor="let key of keysDiscipline" [value]="key" [label]="disciplines[key]">{{disciplines[key]}}</option>
       </select>
 
 
           <label for="description">Description</label>
-        <textarea type="text" id="description" class="md-textarea md-textarea-auto form-control" name="description"></textarea>
+        <textarea  [(ngModel)] = "monForm.description" name="description" type="text" id="description" class="md-textarea md-textarea-auto form-control" name="description"></textarea>
 
       <!--Est actif ou non-->
       <label for="actif">Actif ? :</label>

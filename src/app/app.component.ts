@@ -23,7 +23,7 @@ import {Utilisateur} from './auth/auth.domains';
       </div>
       <router-outlet ></router-outlet>
     <div>
-    <app-accueil></app-accueil>
+    <app-accueil *ngIf= "routerLink != gestion"></app-accueil>
   `,
   styles: []
 })

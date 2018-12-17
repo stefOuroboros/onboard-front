@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AsConfigService } from 'ngx-advanced-searchbox';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProduitsServices } from '../services/produits.service';
-import { Produit } from '../models';
+import { Produit, Discipline, Marque } from '../models';
+import { environment } from '../../environments/environment';
+import { ActivatedRoute } from '@angular/router';
+import { MonForm } from '../ajouter-produit/ajouter-produit.component';
 
 @Component({
   selector: 'app-search-gestion',
@@ -11,32 +13,26 @@ import { Produit } from '../models';
 })
 export class SearchGestionComponent implements OnInit {
 
-  public model = {};
-  public template = {};
+  @Input() produits: Produit[] = null;
 
-  constructor(_config: AsConfigService, _http: HttpClient, public service: ProduitsServices) {
-    this.template = [
-      {
-        'model': 'discipline',
-        'type': 'INPUT',
-        'domains': 'domains',
-        'multiple': '4',
-        'bindLabel': 'label',
-        'label': 'discipline'
-      },
+  monForm:MonForm = new MonForm();
+  nom: string;
+  reference: string;
+  discipline: string;
+  marque: string;
 
-      _config.customDomainsAsyncFn['discipline'] = (observable, viewModel, produit: Produit) => {
-        return observable
-          .switchMap((term) => {
-            return this.service.listerProduits
-              .map((response: any) => {
-                let newResponse = { response: response, term: term };
-                return newResponse;
-              });
-          }
-          );
-      }
-    ];
+  constructor(private route: ActivatedRoute, private _prodService: ProduitsServices, private _httpClient: HttpClient){
+
+    this.nom = route.snapshot.paramMap.get("nom");
+    this.reference = route.snapshot.paramMap.get("reference");
+    this.marque = route.snapshot.paramMap.get("marque");
+    this.discipline = route.snapshot.paramMap.get("discipline");
+
+
+  }
+
+  submit() {
+    this._prodService.rechercherProduit(this.nom, this.reference, this.marque, this.discipline).subscribe((produitData) => this.produits = produitData);
   }
 
   ngOnInit() {

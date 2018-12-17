@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProduitFromJson, Caracteristiques, Marque, Produit } from '../models';
+import { ProduitFromJson, Caracteristiques, Marque, Produit, Discipline } from '../models';
 import { Injectable } from '@angular/core';
 import { map, filter } from 'rxjs/operators';
 import { MonForm } from '../ajouter-produit/ajouter-produit.component';
@@ -28,9 +28,9 @@ export class ProduitsServices {
     {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then((c:MonForm)=>c);
   }
 
-  // rechercherProduit() {
-  //   const URL_BACKEND = environment.baseUrl + '/produits';
-  //   return this._http.post(URL_BACKEND)
-  // }
+  rechercherProduit(nom: string, reference: string, marque: string, discipline: string) {
+    const URL_BACKEND = environment.baseUrl + `produits/search?nom=${nom}&marque=${marque}&reference=${reference}&discipline=${discipline}`;
+    return this._http.get<Produit[]>(URL_BACKEND);
+  }
 
 }

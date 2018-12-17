@@ -16,7 +16,6 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
-import {AsBoxModule} from 'ngx-advanced-searchbox';
 
 
 const routes: Routes = [
@@ -48,7 +47,6 @@ const routes: Routes = [
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    AsBoxModule.forRoot(),
   ],
   providers: [ProduitsServices, {
     provide: HTTP_INTERCEPTORS,

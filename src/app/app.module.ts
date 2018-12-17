@@ -23,9 +23,10 @@ const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
-  { path: 'produits/new', component: AjouterProduitComponent }
+  { path: 'produits/new', component: AjouterProduitComponent },
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+
 ];
 
 

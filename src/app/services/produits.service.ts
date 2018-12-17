@@ -34,9 +34,9 @@ export class ProduitsServices {
     {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response), error => console.log("Erreur", error));
   }
 
-  // rechercherProduit() {
-  //   const URL_BACKEND = environment.baseUrl + '/produits';
-  //   return this._http.post(URL_BACKEND)
-  // }
+  rechercherProduit(nom: string, reference: string, marque: string, discipline: string) {
+    const URL_BACKEND = environment.baseUrl + `produits/search?nom=${nom}&marque=${marque}&reference=${reference}&discipline=${discipline}`;
+    return this._http.get<Produit[]>(URL_BACKEND);
+  }
 
 }

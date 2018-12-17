@@ -8,9 +8,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AuthComponent } from './auth/auth.component';
 import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
 import { ProduitsServices } from './services/produits.service';
-import {FormsModule} from '@angular/forms';
-import {StatutConnecteService} from './auth/statut-connecte.service';
-import {AuthInterceptorService} from './auth/auth-interceptor.service';
+import { FormsModule } from '@angular/forms';
+import { StatutConnecteService } from './auth/statut-connecte.service';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { MenuComponent } from './menu/menu.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
@@ -20,12 +20,13 @@ import { SearchGestionComponent } from './search-gestion/search-gestion.componen
 
 
 const routes: Routes = [
-  { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // /tech accessible uniquement si connecté
+  { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
+  { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'new', component: AjouterProduitComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
-  
+
 ];
 
 
@@ -47,7 +48,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    FormsModule,
   ],
   providers: [ProduitsServices, {
     provide: HTTP_INTERCEPTORS,

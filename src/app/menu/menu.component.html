@@ -1,6 +1,6 @@
 <header>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-            <a class="navbar-brand" href="/accueil"><strong>OnBoard</strong></a>
+            <a class="navbar-brand" routerLink="/accueil"><strong>OnBoard</strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">Gestion des produits</a>
+                        <a class="nav-link" routerLink = "/gestion" *ngIf="visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">Gestion des produits</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink = "/new" *ngIf="visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">Créer un produit</a>
@@ -31,10 +31,10 @@
                     <li class="nav-item" *ngIf="!visiteur_courant.aLeRole('ROLE_UTILISATEUR') && !visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">
                         <a class="nav-link" routerLink="/auth">Profil</a>
                         <ul class="navbar-nav mr-auto"><button>Panier</button></ul>
-                    </li>  
+                    </li>
                 </ul>
             </div>
         </nav>
 
-    
+
 </header>

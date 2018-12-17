@@ -18,12 +18,14 @@ import { GestionProduitComponent } from './gestion-produit/gestion-produit.compo
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
 
 
+
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // /tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  {path: 'tech/produits/new', component: AjouterProduitComponent}
+  { path: 'new', component: AjouterProduitComponent ,canActivate: [StatutConnecteService]},
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' }
+  
 ];
 
 

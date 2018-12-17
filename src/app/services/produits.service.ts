@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ProduitFromJson, Caracteristiques, Marque, Produit } from '../models';
+import { ProduitFromJson, Caracteristiques, Marque, Produit, Discipline } from '../models';
 import { Injectable } from '@angular/core';
 import { map, filter } from 'rxjs/operators';
 import { MonForm } from '../ajouter-produit/ajouter-produit.component';
@@ -22,10 +22,10 @@ export class ProduitsServices {
     return this._http.get<Produit[]>(URL_BACKEND);
   }
 
-  ajouterUnProduit(reference:string, nom :string, prix:number, quantite:number,photo:string, caracteristiques:Caracteristiques, marque:Marque,description:string,flex:number[]):Promise<MonForm> {
+  ajouterUnProduit(reference:string, nom :string, prix:number, photo:string,quantite:number,longueur:number,largeur:number,poids:number,largeurRoues:number,empatement:number,marque:Marque,discipline:Discipline,description:string,actif:boolean):void {
     const URL_BACKEND = environment.baseUrl + 'produits';
-    return this._http.post(URL_BACKEND.concat("/new/"),{ "reference":reference, "nom":nom, "prix":prix, "quantite":quantite,"photos":photo,"caracteristiques":caracteristiques,"marque":marque,"flex":flex,"description":description },
-    {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then((c:MonForm)=>c);
+   this._http.post(URL_BACKEND.concat("/new"),{ "reference":reference, "nom":nom, "prix":prix, "photos":photo,"quantite":quantite,"longueur":longueur,"largeur":largeur,"poids":poids,"largeurRoues":largeurRoues,"empatement":empatement,"marque":marque,"discipline":discipline,"description":description,"actif":actif },
+    {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response), error => console.log("Erreur", error));
   }
 
   // rechercherProduit() {

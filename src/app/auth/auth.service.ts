@@ -82,7 +82,7 @@ export class AuthService {
     return this._http.post(`${environment.baseUrl}${environment.apiLogin}`, new HttpParams().set('username', email).set('password', mdp), config)
       .pipe(
         map(userServeur => new Utilisateur(userServeur)),
-        tap(user => this.utilisateurConnecteSub.next(user) )
+        tap(user => {this.utilisateurConnecteSub.next(user); localStorage.setItem("utilisateur", JSON.stringify(user));} )
       );
   }
 

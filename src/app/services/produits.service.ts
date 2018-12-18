@@ -26,17 +26,21 @@ export class ProduitsServices {
     largeur:number,poids:number,largeurRoues:number,empatement:number,marque:Marque,discipline:Discipline,
     description:string,actif:boolean):void {
     const URL_BACKEND = environment.baseUrl + 'produits';
-    console.log(nom)
    this._http.post(URL_BACKEND.concat("/new"),{ "reference":reference, "nom":nom, "prix":prix, 
    "photos":photo,"quantite":quantite,"longueur":longueur,"largeur":largeur,"poids":poids,
    "largeurRoues":largeurRoues,"empatement":empatement,"marque":marque,"discipline":discipline,
    "description":description,"actif":actif },
-    {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response), error => console.log("Erreur", error));
-  }
+    {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response), 
+    error => console.log("Erreur", error));
+  }// ajout d'un produit avec tous les paramètres pris en compte
 
   rechercherProduit(nom: string, reference: string, marque: string, discipline: string) {
     const URL_BACKEND = environment.baseUrl + `produits/search?nom=${nom}&marque=${marque}&reference=${reference}&discipline=${discipline}`;
     return this._http.get<Produit[]>(URL_BACKEND);
-  }
+  } // rechercher un produit selon le nom, la référence, la marque, la discipline
 
+  deleteUnProduit(reference: string):Observable<void>{
+    const URL_BACKEND = environment.baseUrl+`produits/${reference}` ;
+    return this._http.delete<void>(URL_BACKEND);
+  }// supprime un produit 
 }

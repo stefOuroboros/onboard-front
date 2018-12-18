@@ -20,5 +20,6 @@ export class ListeProduitsComponent implements OnInit {
 
   delete(produitASupprimer:Produit){
     this.produits.splice(this.produits.findIndex(p => p === produitASupprimer),1)
+    this._produitsServices.deleteUnProduit(produitASupprimer.reference).subscribe()
   }
 }

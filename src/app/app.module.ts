@@ -18,12 +18,15 @@ import { GestionProduitComponent } from './gestion-produit/gestion-produit.compo
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
 
 
+
 const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
-  { path: '', redirectTo: '/accueil', pathMatch: 'full' },
-  { path: 'produits/new', component: AjouterProduitComponent }
+  { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
+  { path: 'new', component: AjouterProduitComponent},
+  { path: '', redirectTo: '/accueil', pathMatch: 'full' }
+
 ];
 
 
@@ -45,7 +48,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    FormsModule,
   ],
   providers: [ProduitsServices, {
     provide: HTTP_INTERCEPTORS,

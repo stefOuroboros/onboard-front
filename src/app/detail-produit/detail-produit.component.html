@@ -1,0 +1,49 @@
+<!-- Card -->
+<div class="card z-depth-5">
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <img class="card-img-top" src="{{produit.photos}}" alt="Card image cap">
+    <a href="#!">
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body text-center">
+
+    <!-- Title -->
+    <h4 class="card-title">{{produit.nom}}</h4>
+    <!-- Text -->
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Marque</th>
+            <th scope="col">Discipline</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Longueur</th>
+            <th scope="col">Largeur</th>
+            <th scope="col">Poids</th>
+            <th scope="col">Empattement</th>
+            <th scope="col">Largeurs des roues</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="col">{{produit.marque}}</th>
+            <th scope="col">{{produit.discipline}}</th>
+            <th scope="col">{{produit.prix}} €</th>
+            <th scope="col">{{produit.longueur}} cm</th>
+            <th scope="col">{{produit.largeur}} cm</th>
+            <th scope="col">{{produit.poids}} grammes</th>
+            <th scope="col">{{produit.empatement}} cm</th>
+            <th scope="col">{{produit.largeurRoues}} mm</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>{{produit.description}}</p>
+    <!-- Button -->
+    <a href="#" class="btn btn-primary">Button</a>
+  </div>

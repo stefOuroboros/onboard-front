@@ -18,6 +18,8 @@ export class MonForm{
   discipline:Discipline;
   description:string;
   actif:boolean;
+  prixMin: number;
+  prixMax: number;
 }
 
 @Component({
@@ -38,7 +40,7 @@ export class AjouterProduitComponent implements OnInit {
     this.keys = Object.keys(this.marques).filter(m=> !isNaN(Number(m)))
     this.keysDiscipline = Object.keys(this.disciplines).filter(d=> !isNaN(Number(d)))
     console.log(this.keys);
-    
+
    }
 
    submit(){

@@ -1,15 +1,20 @@
 <div *ngFor="let prod of produits">
-  
-  <p>===========</p>
-  <p>{{prod.nom}}</p>
-  <p>{{prod.reference}}</p>
-  <p>{{prod.marque}}</p>
-  <p>{{prod.discipline}}</p>
-  <p>{{prod.longueur}} cm</p>
-  <p>{{prod.largeur}} cm</p>
-  <p>{{prod.poids}} grammes</p>
-  <button (click)="modify()">Modifier</button>
-  
-  <button (click)="delete(prod)">Supprimer</button>
+  <div *ngIf="prod.actif == true" class="card flex-lg-row">
+    <!-- Card image -->
+    <div class="view overlay">
+      <a href="#!">
+        <img class="card-img-top" src="{{prod.photos}}" alt="Card image cap">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+    <!-- Title -->
+    <h4 class="card-title"><a routerLink="/produits/{{prod.nom}}">{{prod.nom}}</a></h4>
+    <!-- Card body -->
+    <div class="card-body">
+      <p>{{prod.prix}} €</p>
+      <button class="btn btn-primary" (click)="modify()">Modifier</button>
 
+      <button class="btn btn-primary" (click)="delete(prod)">Supprimer</button>
+    </div>
+  </div>
 </div>

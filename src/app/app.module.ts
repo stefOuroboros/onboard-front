@@ -16,6 +16,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
+import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
+  { path: 'produits/:nom', component: DetailProduitComponent },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'new', component: AjouterProduitComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
@@ -41,7 +43,8 @@ const routes: Routes = [
     AccueilComponent,
     AjouterProduitComponent,
     GestionProduitComponent,
-    SearchGestionComponent
+    SearchGestionComponent,
+    DetailProduitComponent,
   ],
   imports: [
     BrowserModule,

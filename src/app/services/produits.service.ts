@@ -22,6 +22,11 @@ export class ProduitsServices {
     return this._http.get<Produit[]>(URL_BACKEND);
   }
 
+  trouverParNom(nom: string): Observable<Produit>{
+    const URL_BACKEND = environment.baseUrl;
+    return this._http.get<Produit>(URL_BACKEND + 'produits/' + nom);
+  }
+
   ajouterUnProduit(reference: string, nom: string, prix: number, photo: string, quantite: number, longueur: number,
     largeur: number, poids: number, largeurRoues: number, empatement: number, marque: Marque, discipline: Discipline,
     description: string, actif: boolean): void {

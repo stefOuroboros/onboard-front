@@ -16,7 +16,7 @@
       <!--Quantité-->
       <label for="quantite">Quantité :</label>
       <input [(ngModel)]="monForm.quantite" name="quantite" class="form-control">
-      
+
       <!--Caractéristiques-->
       <label for="longueur">Longueur :</label>
       <input [(ngModel)]="monForm.longueur" name="longueur" class="form-control" >
@@ -39,7 +39,7 @@
       <select class="form-control" [(ngModel)] = "monForm.marque" name="marque">
         <option *ngFor="let key of keys" [value]="key" [label]="marques[key]">{{marques[key]}}</option>
       </select>
-  
+
 
       <!--Discipline-->
       <label for="discipline">Discipline :</label>

@@ -2,8 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProduitFromJson, Caracteristiques, Marque, Produit, Discipline } from '../models';
 import { Injectable } from '@angular/core';
-import { map, filter } from 'rxjs/operators';
-import { MonForm } from '../ajouter-produit/ajouter-produit.component';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -45,8 +43,10 @@ export class ProduitsServices {
   }// supprime un produit 
 
 
-  updateUnProduit(produitAModifier: Produit):Observable<void> {
-    const URL_BACKEND = environment.baseUrl
-    return this._http.put<void>(URL_BACKEND + '/' + produitAModifier.reference, produitAModifier.nom);
-  }
+  modifierUnProduit(produit :Produit):void {
+    const URL_BACKEND = environment.baseUrl + `produits/modifier/${produit.reference}`;
+   this._http.post(URL_BACKEND, produit ,
+    {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response), 
+    error => console.log("Erreur", error));
+  } // modifie une produit selon le nom du produit
 }

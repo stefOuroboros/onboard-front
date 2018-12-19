@@ -24,7 +24,7 @@ export class ListeProduitsComponent implements OnInit {
   }
 
 
-  modify(produitAModifier:Produit){
-    
+  modifier(produitAModifier:Produit){
+    sessionStorage.setItem("selectedProduit", JSON.stringify(produitAModifier));
   }
 }

@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'new', component: AjouterProduitComponent},
-  { path: 'modify', component:ModifierProduitComponent},
+  { path: 'modifier', component: ModifierProduitComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];

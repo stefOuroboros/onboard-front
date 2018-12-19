@@ -28,7 +28,6 @@ export class SearchGestionComponent implements OnInit {
     this.marque = route.snapshot.paramMap.get("marque");
     this.discipline = route.snapshot.paramMap.get("discipline");
 
-
   }
 
   submit() {
@@ -36,6 +35,7 @@ export class SearchGestionComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

@@ -43,4 +43,10 @@ export class ProduitsServices {
     const URL_BACKEND = environment.baseUrl+`produits/${reference}` ;
     return this._http.delete<void>(URL_BACKEND);
   }// supprime un produit 
+
+
+  updateUnProduit(produitAModifier: Produit):Observable<void> {
+    const URL_BACKEND = environment.baseUrl
+    return this._http.put<void>(URL_BACKEND + '/' + produitAModifier.reference, produitAModifier.nom);
+  }
 }

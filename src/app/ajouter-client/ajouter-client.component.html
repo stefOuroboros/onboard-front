@@ -1,0 +1,62 @@
+<div class="col-md-6">
+    <h1>Ajouter un produit</h1>
+    <form (ngSubmit)="submit()" #ProduitForm ="ngForm">
+      <!--Référence-->
+      <label for="reference">Référence :</label>
+      <input [(ngModel)]="monForm.reference"  name="reference" class="form-control">
+      <!--Nom-->
+      <label for="nom">Nom :</label>
+      <input [(ngModel)]="monForm.nom" name="nom" class="form-control">
+      <!--Prix-->
+      <label for="prix">Prix</label>
+      <input [(ngModel)]="monForm.prix" name="prix" class="form-control">
+      <!--Photos-->
+      <label for="photos">Photos :</label>
+      <input [(ngModel)]="monForm.photos"  name="photos" class="form-control">
+      <!--Quantité-->
+      <label for="quantite">Quantité :</label>
+      <input [(ngModel)]="monForm.quantite" name="quantite" class="form-control">
+      
+      <!--Caractéristiques-->
+      <label for="longueur">Longueur :</label>
+      <input [(ngModel)]="monForm.longueur" name="longueur" class="form-control" >
+
+      <label for="largeur">Largeur :</label>
+      <input [(ngModel)]="monForm.largeur" name="largeur" class="form-control">
+
+      <label for="poids">Poids : (en gramme)</label>
+      <input [(ngModel)]="monForm.poids" name="poids" class="form-control" >
+
+
+      <label for="largeur-roues">Largeur des roues :</label>
+      <input [(ngModel)]="monForm.largeurRoues" name="largeurRoues" class="form-control" >
+
+      <label for="empatement">Empattement : </label>
+      <input [(ngModel)]="monForm.empatement" name="empatement" class="form-control" >
+
+      <!--Marque-->
+      <label for="marques">Marque :</label>
+      <select class="form-control" [(ngModel)] = "monForm.marque" name="marque">
+        <option *ngFor="let key of keys" [value]="key" [label]="marques[key]">{{marques[key]}}</option>
+      </select>
+  
+
+      <!--Discipline-->
+      <label for="discipline">Discipline :</label>
+      <select class="form-control" [(ngModel)] = "monForm.discipline" name="discipline">
+        <option *ngFor="let key of keysDiscipline" [value]="key" [label]="disciplines[key]">{{disciplines[key]}}</option>
+      </select>
+
+
+          <label for="description">Description</label>
+        <textarea  [(ngModel)] = "monForm.description" name="description" type="text" id="description" class="md-textarea md-textarea-auto form-control" name="description"></textarea>
+
+      <!--Est actif ou non-->
+      <label for="actif">Actif ? :</label>
+      <input type="checkbox" [(ngModel)]="monForm.actif" name="actif" ng-true-value="yes" ng-false-value="no">
+
+      <!--soumettre-->
+      <button type="submit" class="btn btn-success">Créer</button>
+    </form>
+  </div>
+

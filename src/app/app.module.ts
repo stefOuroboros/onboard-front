@@ -17,6 +17,7 @@ import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.compo
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
+import { AjouterClientComponent } from './ajouter-client/ajouter-client.component';
 
 
 
@@ -44,7 +45,8 @@ const routes: Routes = [
     AjouterProduitComponent,
     GestionProduitComponent,
     SearchGestionComponent,
-    ModifierProduitComponent
+    ModifierProduitComponent,
+    AjouterClientComponent
   ],
   imports: [
     BrowserModule,

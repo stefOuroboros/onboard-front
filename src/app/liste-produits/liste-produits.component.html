@@ -12,9 +12,10 @@
     <!-- Card body -->
     <div class="card-body">
       <p>{{prod.prix}} €</p>
-      <button class="btn btn-primary" (click)="modify()">Modifier</button>
+      <button *ngIf="visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')" class="btn btn-primary" (click)="modify()">Modifier</button>
 
-      <button class="btn btn-primary" (click)="delete(prod)">Supprimer</button>
+      <button *ngIf="visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')" class="btn btn-primary" (click)="delete(prod)">Supprimer</button>
+      <a href="#" class="btn btn-primary">Ajouter à mon panier</a>
     </div>
   </div>
 </div>

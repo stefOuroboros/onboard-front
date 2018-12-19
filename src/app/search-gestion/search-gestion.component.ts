@@ -5,6 +5,9 @@ import { Produit, Discipline, Marque } from '../models';
 import { environment } from '../../environments/environment';
 import { ActivatedRoute } from '@angular/router';
 import { MonForm } from '../ajouter-produit/ajouter-produit.component';
+import { Observable } from 'rxjs';
+import { Utilisateur } from '../auth/auth.domains';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'search',
@@ -14,6 +17,9 @@ import { MonForm } from '../ajouter-produit/ajouter-produit.component';
 export class SearchGestionComponent implements OnInit {
 
   @Input() produits: Produit[] = null;
+
+  @Input() obs_visiteur_courant: Observable<Utilisateur>;
+  visiteur_courant: Utilisateur;
 
   form: MonForm;
   nom: string;
@@ -28,7 +34,9 @@ export class SearchGestionComponent implements OnInit {
   @Input() marques = Marque;
   @Input() disciplines = Discipline
 
-  constructor(private route: ActivatedRoute, private _prodService: ProduitsServices, private _httpClient: HttpClient){
+  constructor(private route: ActivatedRoute, private _prodService: ProduitsServices, private _httpClient: HttpClient,private _authService: AuthService){
+
+    this.visiteur_courant = new Utilisateur({nom: "", prenom: "", email: "", motDePasse:"", roles: []});
 
     this.form = new MonForm();
     this.keys = Object.keys(this.marques).filter(m=> !isNaN(Number(m)));
@@ -45,7 +53,7 @@ export class SearchGestionComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this._authService.verifierAuthentification().subscribe(visit => this.visiteur_courant = visit);
   }
 
 }

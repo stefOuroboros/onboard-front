@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, ObservableInput } from 'rxjs';
-import { ProduitFromJson, Caracteristiques, Marque, Produit, Discipline } from '../models';
+import { ProduitFromJson, Marque, Produit, Discipline } from '../models';
 import { Injectable } from '@angular/core';
 import { map, filter } from 'rxjs/operators';
 import { MonForm } from '../ajouter-produit/ajouter-produit.component';

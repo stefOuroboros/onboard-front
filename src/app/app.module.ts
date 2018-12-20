@@ -23,6 +23,8 @@ import { ModifierProduitComponent } from './modifier-produit/modifier-produit.co
 import { PassageInfoService } from './passage-info.service';
 import { PanierComponent } from './panier/panier.component';
 import { PanierService } from './services/panier.service';
+import { AjouterClientComponent } from './ajouter-client/ajouter-client.component';
+
 
 
 
@@ -37,6 +39,7 @@ const routes: Routes = [
   { path: 'store', redirectTo:'/accueil', pathMatch: 'full'},
   { path: 'modifier', component: ModifierProduitComponent, canActivate: [StatutConnecteService]},
   { path: 'panier', component:PanierComponent},
+  { path: 'utilisateur', component: AjouterClientComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];
@@ -57,7 +60,8 @@ const routes: Routes = [
     ListeCommandeComponent,
     ModifierProduitComponent,
     DetailProduitComponent,
-    PanierComponent
+    PanierComponent,
+    AjouterClientComponent
   ],
   imports: [
     BrowserModule,

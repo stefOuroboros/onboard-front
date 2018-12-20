@@ -43,7 +43,7 @@ export class SearchGestionComponent implements OnInit {
     this.form = new MonForm();
     this.keys = Object.keys(this.marques).filter(m=> !isNaN(Number(m)));
     this.keysDiscipline = Object.keys(this.disciplines).filter(d=> !isNaN(Number(d)));
-    this.nom = route.snapshot.paramMap.get("nom");
+    this.nom = this.route.snapshot.paramMap.get("nom");
     this.reference = route.snapshot.paramMap.get("reference");
     this.marque = route.snapshot.paramMap.get("marque");
     this.discipline = route.snapshot.paramMap.get("discipline");
@@ -55,6 +55,14 @@ export class SearchGestionComponent implements OnInit {
   }
 
   submit() {
+    if(this.nom) {
+      this.nom = this.nom.toUpperCase();
+    } else if(this.reference) {
+      this.reference = this.reference.toUpperCase()
+    } else {
+      this.nom = null;
+      this.reference = null;
+    }
     this._prodService.rechercherProduit(this.nom, this.reference, this.marque, this.discipline, this.prixMin, this.prixMax, this.sort).subscribe(data => this._passageInfoService.rafraichir(data));
   }
 

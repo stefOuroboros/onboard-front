@@ -4,7 +4,7 @@ export class Produit {
   reference: string;
   nom: string;
   prix: number;
-  photos: string[];
+  photos: string;
   quantite: number;
   caracteristiques: Caracteristiques;
   description: string;
@@ -15,6 +15,7 @@ export class Produit {
   poids: number;
   empatement: number;
   largeurRoues: number;
+  actif:boolean;
 
 
   constructor(params: any) {

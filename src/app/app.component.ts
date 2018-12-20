@@ -13,16 +13,15 @@ import {Utilisateur} from './auth/auth.domains';
     <div style="padding-top:80px">
       <div class="jumbotron">
         <h2 class="h1 h1-responsive">On Board</h2>
-        <search></search>
+        <search [obs_visiteur_courant]="utilisateurConnecte"></search>
         <div>
           <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">{{(utilisateurConnecte | async).prenom}} {{(utilisateurConnecte | async).nom}}</span><br>
           <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">({{(utilisateurConnecte | async).roles}})</span>
           <app-menu [obs_visiteur_courant]="utilisateurConnecte"></app-menu>
         </div>
       </div>
-      <router-outlet ></router-outlet>
+      <router-outlet></router-outlet>
     <div>
-    <app-liste-produits [obs_visiteur_courant]="utilisateurConnecte" *ngIf= "routerLink != gestion"></app-liste-produits>
   `,
   styles: []
 })

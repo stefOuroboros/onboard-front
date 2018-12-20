@@ -2,7 +2,7 @@
   <div *ngIf="prod.actif == true" class="card flex-lg-row">
     <!-- Card image -->
     <div class="view overlay">
-      <a routerLink="/produits/{{prod.nom}}">
+      <a routerLink="/produits/:{{prod.nom}}">
         <img class="card-img-top" src="{{prod.photos}}" alt="Card image cap">
         <div class="mask rgba-white-slight"></div>
       </a>

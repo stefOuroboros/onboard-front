@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ProduitsServices } from '../services/produits.service';
 import { Produit, Discipline, Marque } from '../models';
 import { environment } from '../../environments/environment';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router, ActivatedRouteSnapshot, RouterStateSnapshot, Route, Routes } from '@angular/router';
 import { MonForm } from '../ajouter-produit/ajouter-produit.component';
 import { Observable } from 'rxjs';
 import { Utilisateur } from '../auth/auth.domains';
@@ -36,7 +36,7 @@ export class SearchGestionComponent implements OnInit {
   @Input() marques = Marque;
   @Input() disciplines = Discipline
 
-  constructor(private route: ActivatedRoute, listePr: ListeProduitsComponent,private _prodService: ProduitsServices, private _httpClient: HttpClient,private _authService: AuthService, private _passageInfoService : PassageInfoService){
+  constructor(private route: ActivatedRoute, private router: Router ,listePr: ListeProduitsComponent,private _prodService: ProduitsServices, private _httpClient: HttpClient,private _authService: AuthService, private _passageInfoService : PassageInfoService){
 
     this.visiteur_courant = new Utilisateur({nom: "", prenom: "", email: "", motDePasse:"", roles: []});
     this.listePr=listePr;
@@ -48,6 +48,10 @@ export class SearchGestionComponent implements OnInit {
     this.marque = route.snapshot.paramMap.get("marque");
     this.discipline = route.snapshot.paramMap.get("discipline");
 
+  }
+
+  isGestionPage(): boolean {
+    return "/gestion"==this.router.url;
   }
 
   submit() {

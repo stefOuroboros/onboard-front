@@ -20,6 +20,5 @@ export class DetailProduitComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 }

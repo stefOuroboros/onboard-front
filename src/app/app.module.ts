@@ -22,6 +22,7 @@ import { DetailProduitComponent } from './detail-produit/detail-produit.componen
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
 import { PanierComponent } from './panier/panier.component';
 import { PanierService } from './services/panier.service';
+import { PassageInfoService } from './passage-info.service';
 
 
 
@@ -65,7 +66,7 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     FormsModule,
   ],
-  providers: [ProduitsServices, CommandesServices, PanierService, {
+  providers: [ProduitsServices, PassageInfoService, PanierService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true

@@ -3,20 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { ProduitsServices } from '../services/produits.service';
 import { Produit, Discipline, Marque } from '../models';
 import { environment } from '../../environments/environment';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router, ActivatedRouteSnapshot, RouterStateSnapshot, Route, Routes } from '@angular/router';
 import { MonForm } from '../ajouter-produit/ajouter-produit.component';
 import { Observable } from 'rxjs';
 import { Utilisateur } from '../auth/auth.domains';
 import { AuthService } from '../auth/auth.service';
+import { ListeProduitsComponent } from '../liste-produits/liste-produits.component';
+import { PassageInfoService } from '../passage-info.service';
 
 @Component({
   selector: 'search',
+  providers: [ListeProduitsComponent],
   templateUrl: './search-gestion.component.html',
   styleUrls: ['./search-gestion.component.css']
 })
 export class SearchGestionComponent implements OnInit {
-
-  @Input() produits: Produit[] = null;
 
   @Input() obs_visiteur_courant: Observable<Utilisateur>;
   visiteur_courant: Utilisateur;
@@ -31,13 +32,14 @@ export class SearchGestionComponent implements OnInit {
   sort: string;
   keys: string[];
   keysDiscipline: string[];
+  listePr:ListeProduitsComponent;
   @Input() marques = Marque;
   @Input() disciplines = Discipline
 
-  constructor(private route: ActivatedRoute, private _prodService: ProduitsServices, private _httpClient: HttpClient,private _authService: AuthService){
+  constructor(private route: ActivatedRoute, private router: Router ,listePr: ListeProduitsComponent,private _prodService: ProduitsServices, private _httpClient: HttpClient,private _authService: AuthService, private _passageInfoService : PassageInfoService){
 
     this.visiteur_courant = new Utilisateur({nom: "", prenom: "", email: "", motDePasse:"", roles: []});
-
+    this.listePr=listePr;
     this.form = new MonForm();
     this.keys = Object.keys(this.marques).filter(m=> !isNaN(Number(m)));
     this.keysDiscipline = Object.keys(this.disciplines).filter(d=> !isNaN(Number(d)));
@@ -48,8 +50,12 @@ export class SearchGestionComponent implements OnInit {
 
   }
 
+  isGestionPage(): boolean {
+    return "/gestion"==this.router.url;
+  }
+
   submit() {
-    this._prodService.rechercherProduit(this.nom, this.reference, this.marque, this.discipline, this.prixMin, this.prixMax, this.sort).subscribe((produitData) => this.produits = produitData);
+    this._prodService.rechercherProduit(this.nom, this.reference, this.marque, this.discipline, this.prixMin, this.prixMax, this.sort).subscribe(data => this._passageInfoService.rafraichir(data));
   }
 
   ngOnInit() {

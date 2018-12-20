@@ -26,7 +26,7 @@
                         <a class="nav-link" routerLink="/store" *ngIf="visiteur_courant.aLeRole('ROLE_UTILISATEUR')">Accès au store</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/deconnexion"*ngIf="visiteur_courant.aLeRole('ROLE_UTILISATEUR') || visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">Déconnexion</a>
+                      <a  class="btn btn-danger" (click)="seDeconnecter()" *ngIf="!(utilisateurConnecte | async).estAnonyme()">Se déconnecter</a>
                     </li>
                     <li class="nav-item" *ngIf="!visiteur_courant.aLeRole('ROLE_UTILISATEUR') && !visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')">
                         <a class="nav-link" routerLink="/auth">Profil</a>

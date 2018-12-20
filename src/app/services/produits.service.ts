@@ -8,12 +8,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ProduitsServices {
-  private _urlJson = 'http://localhost:3000/produits';
-  constructor(private _http: HttpClient) { }
 
-  listerProduitsDepuisJson(): Observable<ProduitFromJson[]> {
-    return this._http.get<ProduitFromJson[]>(this._urlJson);
-  }
+  constructor(private _http: HttpClient) { }
 
   listerProduits(): Observable<Produit[]> {
     const URL_BACKEND = environment.baseUrl + 'produits';
@@ -41,7 +37,7 @@ export class ProduitsServices {
   rechercherProduit(nom: string, reference: string, marque: string, discipline: string, prixMin = 0, prixMax = 1500, sort = 'asc', pageNbr = 0, nbrByPage = 10): Observable<Produit[]> {
     const URL_BACKEND = environment.baseUrl;
     return this._http.get<Produit[]>(URL_BACKEND + `produits/search?nom=${nom}&marque=${marque}&reference=${reference}&discipline=${discipline}&prixMin=${prixMin}&prixMax=${prixMax}&sort=${sort}&pageNbr=${pageNbr}&nbrByPage=${nbrByPage}`);
-  } // rechercher un produit selon le nom, la référence, la marque, la discipline
+  } // rechercher un produit selon le nom, la référence, la marque, la discipline +++
 
   deleteUnProduit(reference: string):Observable<void>{
     const URL_BACKEND = environment.baseUrl+`produits/${reference}` ;

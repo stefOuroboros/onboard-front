@@ -5,6 +5,7 @@ import { Produit } from '../models';
 import { Observable } from 'rxjs';
 import { Utilisateur } from '../auth/auth.domains';
 import { AuthService } from '../auth/auth.service';
+import { PassageInfoService } from '../passage-info.service';
 
 @Component({
   selector: 'app-liste-produits',
@@ -13,18 +14,18 @@ import { AuthService } from '../auth/auth.service';
 })
 export class ListeProduitsComponent implements OnInit {
 
-  @Input() produits: Produit[] = null;
+  produits: Produit[] = null;
   @Input() obs_visiteur_courant:Observable<Utilisateur>;
   visiteur_courant: Utilisateur;
 
-  constructor(private _produitsServices: ProduitsServices, private _authService: AuthService, private _panierService: PanierService) {
+  constructor(private _produitsServices: ProduitsServices, private _authService: AuthService, private _passageInfoService: PassageInfoService, private _panierService: PanierService) {
     this.visiteur_courant = new Utilisateur({nom: "", prenom: "", email: "", motDePasse:"", roles: []});
+
   }
 
   ngOnInit() {
     this._authService.verifierAuthentification().subscribe(visit => this.visiteur_courant = visit);
-    this._produitsServices.listerProduits()
-    .subscribe((produitData) => this.produits = produitData);
+    this._passageInfoService.getProduits().subscribe(data => this.produits=data);
   }
 
   delete(produitASupprimer:Produit){

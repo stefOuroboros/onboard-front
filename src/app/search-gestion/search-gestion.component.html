@@ -1,22 +1,28 @@
 <form (ngSubmit)="submit()" #ProduitForm="ngForm">
-  <label>nom : </label><input name="nom" [(ngModel)]="nom"><br>
-  <label>reference : </label><input name="reference" [(ngModel)]="reference"><br>
-  <label for="marques">Marque :</label>
+
+  <div class="md-form form-sm">
+
+    <input name="nom" class="form-control form-control-sm" type="text" placeholder="Nom du Produit" [(ngModel)]="nom">
+
+    <input [hidden]="!isGestionPage()" class="form-control form-control-sm" type="text" placeholder="Réference du produit" name="reference" [(ngModel)]="reference">
+
+  </div>
+
+  <label for="marque">Marque :</label>
   <select class="form-control" [(ngModel)]="marque" name="marque">
     <option *ngFor="let key of keys" [value]="marques[key]" [label]="marques[key]">{{marques[key]}}</option>
   </select>
+
   <label for="discipline">Discipline :</label>
   <select class="form-control" [(ngModel)]="discipline" name="discipline">
     <option *ngFor="let key of keysDiscipline" [value]="disciplines[key]" [label]="disciplines[key]">{{disciplines[key]}}</option>
   </select>
-  <label for="prixMin">Prix minimum : </label><input name="prixMin" [(ngModel)]="prixMin"> €<br>
-  <label for="prixMax">Prix maximum : </label><input name="prixMax" [(ngModel)]="prixMax"> €<br>
+  <input name="prixMin" class="form-control form-control-sm" type="number" placeholder="Prix minimum (€)" [(ngModel)]="prixMin">
+  <input name="prixMax" class="form-control form-control-sm" type="number" placeholder="Prix maximum (€)" [(ngModel)]="prixMax"> €<br>
 
-    <label for="asc">Prix croissant </label>
-    <input type="radio" id="asc" [(ngModel)]="sort" value ="asc" name="sort"><br>
-    <label for="desc">Prix décroissant </label>
-    <input type="radio" id="desc" [(ngModel)]="sort" value ="desc" name="sort"><br>
+  <label for="asc">Prix croissant </label>
+  <input type="radio" id="asc" [(ngModel)]="sort" value="asc" name="sort"><br>
+  <label for="desc">Prix décroissant </label>
+  <input type="radio" id="desc" [(ngModel)]="sort" value="desc" name="sort"><br>
   <button type="submit">Rechercher</button>
 </form>
-<app-liste-produits [produits]="produits"></app-liste-produits>
-

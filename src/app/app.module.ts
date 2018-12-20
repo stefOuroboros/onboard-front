@@ -20,6 +20,8 @@ import { ListeCommandeComponent } from './liste-commande/liste-commande.componen
 import { CommandesServices } from './services/commandes.service';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
+import { PanierComponent } from './panier/panier.component';
+import { PanierService } from './services/panier.service';
 
 
 
@@ -33,6 +35,7 @@ const routes: Routes = [
   { path: 'new', component: AjouterProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'store', redirectTo:'/accueil', pathMatch: 'full'},
   { path: 'modifier', component: ModifierProduitComponent, canActivate: [StatutConnecteService]},
+  { path: 'panier', component:PanierComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];
@@ -52,7 +55,8 @@ const routes: Routes = [
     SearchGestionComponent,
     ListeCommandeComponent,
     ModifierProduitComponent,
-    DetailProduitComponent
+    DetailProduitComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,7 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     FormsModule,
   ],
-  providers: [ProduitsServices, CommandesServices, {
+  providers: [ProduitsServices, CommandesServices, PanierService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true

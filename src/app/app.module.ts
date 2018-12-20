@@ -18,6 +18,7 @@ import { GestionProduitComponent } from './gestion-produit/gestion-produit.compo
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
+import { PassageInfoService } from './passage-info.service';
 
 
 
@@ -27,8 +28,8 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'produits/:nom', component: DetailProduitComponent },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
-  { path: 'new', component: AjouterProduitComponent},
-  { path: 'modifier', component: ModifierProduitComponent},
+  { path: 'new', component: AjouterProduitComponent, canActivate: [StatutConnecteService] },
+  { path: 'modifier', component: ModifierProduitComponent, canActivate: [StatutConnecteService] },
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];
@@ -46,7 +47,8 @@ const routes: Routes = [
     AjouterProduitComponent,
     GestionProduitComponent,
     SearchGestionComponent,
-    DetailProduitComponent
+    DetailProduitComponent,
+    ModifierProduitComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     FormsModule,
   ],
-  providers: [ProduitsServices, {
+  providers: [ProduitsServices, PassageInfoService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true

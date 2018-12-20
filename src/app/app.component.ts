@@ -12,18 +12,17 @@ import {Utilisateur} from './auth/auth.domains';
   template: `
     <div style="padding-top:80px">
       <div class="jumbotron">
-        <h2 class="h1 h1-responsive">Super Application</h2>
-
+        <h2 class="h1 h1-responsive">On Board</h2>
+        <search></search>
         <div>
-          <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">{{(utilisateurConnecte | async).email}}</span>
+          <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">{{(utilisateurConnecte | async).prenom}} {{(utilisateurConnecte | async).nom}}</span><br>
           <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">({{(utilisateurConnecte | async).roles}})</span>
           <app-menu [obs_visiteur_courant]="utilisateurConnecte"></app-menu>
-          <a  class="btn btn-danger" (click)="seDeconnecter()" *ngIf="!(utilisateurConnecte | async).estAnonyme()">Se déconnecter</a>
         </div>
       </div>
       <router-outlet ></router-outlet>
     <div>
-    <app-accueil [obs_visiteur_courant]="utilisateurConnecte" *ngIf= "routerLink != gestion"></app-accueil>
+    <app-liste-produits [obs_visiteur_courant]="utilisateurConnecte" *ngIf= "routerLink != gestion"></app-liste-produits>
   `,
   styles: []
 })

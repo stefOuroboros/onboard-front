@@ -1,20 +1,25 @@
 <div class="col-md-6">
-    <h1>Ajouter un utilisateur</h1>
-    <form (ngSubmit)="submit()" #ProduitForm ="ngForm">
+  <h1>Ajouter un utilisateur</h1>
+  <form (ngSubmit)="submit()" #UserForm="ngForm">
+    <!--Mail avec confirmation-->
+    <label for="email">Email :</label>
+    <input [(ngModel)]="monUser.email" name="email" type="email" class="form-control" required pattern="^[a-zA-Z0–9_.+-]+@[a-zA-Z0–9-]+.[a-zA-Z0–9-.]+$">
 
-      <label for="mail">Email :</label>
-      <input [(ngModel)]="monUser.mail" name="mail" type="email" class="form-control"  required pattern="^[a-zA-Z0–9_.+-]+@[a-zA-Z0–9-]+.[a-zA-Z0–9-.]+$" >
+    <label for="confirmMail">Confirmation du mail :</label>
+    <input [(ngModel)]="monUser.confirmMail" name="ConfirmMail" type="email" class="form-control">
+    <!--Nom et prénom de l'utilisateur-->
+    <label for="nom">Nom :</label>
+    <input [(ngModel)]="monUser.nom" name="nom" type="text" class="form-control">
 
-      <label for="mail">Confirmation du mail :</label>
-      <input [(ngModel)]="monUser.confirmMail" name="ConfirmMail" type="email" class="form-control" >
+    <label for="prenom">Prénom :</label>
+    <input [(ngModel)]="monUser.prenom" name="prenom" type="text" class="form-control">
+    <!--Mot de passe avec confirmation-->
+    <label for="mot_de_passe">Mot de passe :</label>
+    <input [(ngModel)]="monUser.mot_de_passe" name="mot_de_passe" type="password" class="form-control">
 
-      <label for="password">Mot de passe :</label>
-      <input [(ngModel)]="monUser.password" name="password" type="password" class="form-control" >
-
-      <label for="confirmPassword">Confirmation du mot de passe :</label>
-      <input [(ngModel)]="monUser.confirmPassword" name="confirmPassword" type="password" class="form-control" >
-      <!--soumettre-->
-      <button type="submit" class="btn btn-success">Créer</button>
-    </form>
-  </div>
-    
+    <label for="confirmPassword">Confirmation du mot de passe :</label>
+    <input [(ngModel)]="monUser.confirmPassword" name="confirmPassword" type="password" class="form-control">
+    <!--soumettre-->
+    <button type="submit" class="btn btn-success">Créer</button>
+  </form>
+</div>

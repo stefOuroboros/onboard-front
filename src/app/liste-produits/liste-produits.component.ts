@@ -30,4 +30,9 @@ export class ListeProduitsComponent implements OnInit {
     this.produits.splice(this.produits.findIndex(p => p === produitASupprimer),1)
     this._produitsServices.deleteUnProduit(produitASupprimer.reference).subscribe()
   }
+
+
+  modifier(produitAModifier:Produit){
+    sessionStorage.setItem("selectedProduit", JSON.stringify(produitAModifier));
+  }
 }

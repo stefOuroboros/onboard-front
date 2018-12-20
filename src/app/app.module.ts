@@ -17,6 +17,7 @@ import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.compo
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
+import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'produits/:nom', component: DetailProduitComponent },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'new', component: AjouterProduitComponent},
+  { path: 'modifier', component: ModifierProduitComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];
@@ -44,7 +46,7 @@ const routes: Routes = [
     AjouterProduitComponent,
     GestionProduitComponent,
     SearchGestionComponent,
-    DetailProduitComponent,
+    DetailProduitComponent
   ],
   imports: [
     BrowserModule,

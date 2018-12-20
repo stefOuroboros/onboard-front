@@ -16,6 +16,8 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
+import { ListeCommandeComponent } from './liste-commande/liste-commande.component';
+import { CommandesServices } from './services/commandes.service';
 
 
 
@@ -23,8 +25,10 @@ const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
+  { path: 'commandes', component: ListeCommandeComponent, canActivate: [StatutConnecteService] },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
-  { path: 'new', component: AjouterProduitComponent},
+  { path: 'new', component: AjouterProduitComponent, canActivate: [StatutConnecteService] },
+  { path: 'store', redirectTo:'/accueil', pathMatch: 'full'},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];
@@ -41,7 +45,8 @@ const routes: Routes = [
     AccueilComponent,
     AjouterProduitComponent,
     GestionProduitComponent,
-    SearchGestionComponent
+    SearchGestionComponent,
+    ListeCommandeComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,7 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     FormsModule,
   ],
-  providers: [ProduitsServices, {
+  providers: [ProduitsServices, CommandesServices, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true

@@ -1,3 +1,5 @@
+import { Utilisateur } from "./auth/auth.domains";
+
 export class Produit {
   reference: string;
   nom: string;
@@ -70,3 +72,14 @@ export class Caracteristiques {
   DOWNHILL = 3,
   FREESTYLE = 4
  }
+
+ export class Commande {
+  numero:number;
+  articles:Produit[];
+  achatDate:Date;
+  client:Utilisateur;
+
+  constructor(params: any) {
+    Object.assign(this, params);
+  }
+}

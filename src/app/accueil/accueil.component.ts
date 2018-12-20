@@ -11,7 +11,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class AccueilComponent implements OnInit {
 
-  obs_visiteur_courant:Observable<Utilisateur>;
+  @Input() obs_visiteur_courant:Observable<Utilisateur>;
   visiteur_courant:Utilisateur;
   constructor(private _authService: AuthService) {
     this.visiteur_courant = new Utilisateur({nom: "", prenom: "", email: "", motDePasse:"", roles: []});

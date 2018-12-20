@@ -1,18 +1,22 @@
-<form (ngSubmit)="submit()" #monForm="ngForm">
-  <label>nom : </label><input name="nom" [(ngModel)]="nom" #nomChamp="ngModel"><br>
-  <label>reference : </label><input name="reference" [(ngModel)]="reference" #referenceChamp="ngModel"><br>
-  <label>Marque : </label><input name="marque" [(ngModel)]="marque" #marqueChamp="ngModel"><br>
-  <label>Discipline : </label><input name="discipline" [(ngModel)]="discipline" #disciplineChamp="ngModel"><br>
+<form (ngSubmit)="submit()" #ProduitForm="ngForm">
+  <label>nom : </label><input name="nom" [(ngModel)]="nom"><br>
+  <label>reference : </label><input name="reference" [(ngModel)]="reference"><br>
+  <label for="marques">Marque :</label>
+  <select class="form-control" [(ngModel)]="marque" name="marque">
+    <option *ngFor="let key of keys" [value]="marques[key]" [label]="marques[key]">{{marques[key]}}</option>
+  </select>
+  <label for="discipline">Discipline :</label>
+  <select class="form-control" [(ngModel)]="discipline" name="discipline">
+    <option *ngFor="let key of keysDiscipline" [value]="disciplines[key]" [label]="disciplines[key]">{{disciplines[key]}}</option>
+  </select>
+  <label for="prixMin">Prix minimum : </label><input name="prixMin" [(ngModel)]="prixMin"> €<br>
+  <label for="prixMax">Prix maximum : </label><input name="prixMax" [(ngModel)]="prixMax"> €<br>
+
+    <label for="asc">Prix croissant </label>
+    <input type="radio" id="asc" [(ngModel)]="sort" value ="asc" name="sort"><br>
+    <label for="desc">Prix décroissant </label>
+    <input type="radio" id="desc" [(ngModel)]="sort" value ="desc" name="sort"><br>
   <button type="submit">Rechercher</button>
 </form>
-<p *ngIf="!nomChamp == null">Au moins 1 champs de recherche !</p>
-<div *ngFor="let prod of produits">
-  <p>RECHERCHE : </p>
-  <p>{{prod.nom}}</p>
-  <p>{{prod.reference}}</p>
-  <p>{{prod.marque}}</p>
-  <p>{{prod.discipline}}</p>
-  <p>{{prod.longueur}} cm</p>
-  <p>{{prod.largeur}} cm</p>
-  <p>{{prod.poids}} grammes</p>
-</div>
+<app-liste-produits [produits]="produits"></app-liste-produits>
+

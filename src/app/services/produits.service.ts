@@ -46,13 +46,13 @@ export class ProduitsServices {
   deleteUnProduit(reference: string):Observable<void>{
     const URL_BACKEND = environment.baseUrl+`produits/${reference}` ;
     return this._http.delete<void>(URL_BACKEND);
-  }// supprime un produit 
+  }// supprime un produit
 
 
   modifierUnProduit(produit :Produit):void {
     const URL_BACKEND = environment.baseUrl + `produits/modifier/${produit.reference}`;
    this._http.post(URL_BACKEND, produit ,
-    {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response), 
+    {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response),
     error => console.log("Erreur", error));
   } // modifie une produit selon le nom du produit
 }

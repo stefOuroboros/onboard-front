@@ -1,3 +1,5 @@
+import { Utilisateur } from "./auth/auth.domains";
+
 export class Produit {
   reference: string;
   nom: string;
@@ -74,4 +76,15 @@ export enum Discipline {
   CRUISING = 2,
   DOWNHILL = 3,
   FREESTYLE = 4
+ }
+
+ export class Commande {
+  numero:number;
+  articles:Produit[];
+  achatDate:Date;
+  client:Utilisateur;
+
+  constructor(params: any) {
+    Object.assign(this, params);
+  }
 }

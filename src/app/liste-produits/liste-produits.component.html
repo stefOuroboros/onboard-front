@@ -15,7 +15,7 @@
       <button *ngIf="visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')" class="btn btn-primary" (click)="modify()">Modifier</button>
 
       <button *ngIf="visiteur_courant.aLeRole('ROLE_ADMINISTRATEUR')" class="btn btn-primary" (click)="delete(prod)">Supprimer</button>
-      <a href="#" class="btn btn-primary">Ajouter à mon panier</a>
+      <a (click)="ajouterAuPanier(prod)" class="btn btn-primary">Ajouter à mon panier</a>
     </div>
   </div>
 </div>

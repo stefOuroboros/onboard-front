@@ -16,9 +16,13 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AjouterProduitComponent } from './ajouter-produit/ajouter-produit.component';
 import { GestionProduitComponent } from './gestion-produit/gestion-produit.component';
 import { SearchGestionComponent } from './search-gestion/search-gestion.component';
+import { ListeCommandeComponent } from './liste-commande/liste-commande.component';
+import { CommandesServices } from './services/commandes.service';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 import { ModifierProduitComponent } from './modifier-produit/modifier-produit.component';
 import { PassageInfoService } from './passage-info.service';
+import { PanierComponent } from './panier/panier.component';
+import { PanierService } from './services/panier.service';
 
 
 
@@ -26,10 +30,13 @@ const routes: Routes = [
   { path: 'tech', component: TechComponent, canActivate: [StatutConnecteService] }, // tech accessible uniquement si connecté
   { path: 'auth', component: AuthComponent },
   { path: 'accueil', component: AccueilComponent },
+  { path: 'commandes', component: ListeCommandeComponent, canActivate: [StatutConnecteService] },
   { path: 'produits/:nom', component: DetailProduitComponent },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'new', component: AjouterProduitComponent, canActivate: [StatutConnecteService] },
-  { path: 'modifier', component: ModifierProduitComponent, canActivate: [StatutConnecteService] },
+  { path: 'store', redirectTo:'/accueil', pathMatch: 'full'},
+  { path: 'modifier', component: ModifierProduitComponent, canActivate: [StatutConnecteService]},
+  { path: 'panier', component:PanierComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];
@@ -47,8 +54,10 @@ const routes: Routes = [
     AjouterProduitComponent,
     GestionProduitComponent,
     SearchGestionComponent,
-    DetailProduitComponent,
+    ListeCommandeComponent,
     ModifierProduitComponent,
+    DetailProduitComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +66,7 @@ const routes: Routes = [
     MDBBootstrapModule.forRoot(),
     FormsModule,
   ],
-  providers: [ProduitsServices, PassageInfoService, {
+  providers: [ProduitsServices, PassageInfoService, CommandesServices, PanierService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorService,
     multi: true

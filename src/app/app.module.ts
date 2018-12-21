@@ -24,6 +24,7 @@ import { PassageInfoService } from './passage-info.service';
 import { PanierComponent } from './panier/panier.component';
 import { PanierService } from './services/panier.service';
 import { AjouterClientComponent } from './ajouter-client/ajouter-client.component';
+import { ProfilUtilisateurComponent } from './profil-utilisateur/profil-utilisateur.component';
 
 
 
@@ -34,12 +35,13 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'commandes', component: ListeCommandeComponent, canActivate: [StatutConnecteService] },
   { path: 'produits/:nom', component: DetailProduitComponent },
+  { path: 'profil', component: ProfilUtilisateurComponent },
   { path: 'gestion', component: GestionProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'new', component: AjouterProduitComponent, canActivate: [StatutConnecteService] },
   { path: 'store', redirectTo:'/accueil', pathMatch: 'full'},
   { path: 'modifier', component: ModifierProduitComponent, canActivate: [StatutConnecteService]},
   { path: 'panier', component:PanierComponent},
-  { path: 'utilisateur', component: AjouterClientComponent},
+  { path: 'signin', component: AjouterClientComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' }
 
 ];
@@ -61,7 +63,8 @@ const routes: Routes = [
     ModifierProduitComponent,
     DetailProduitComponent,
     PanierComponent,
-    AjouterClientComponent
+    AjouterClientComponent,
+    ProfilUtilisateurComponent
   ],
   imports: [
     BrowserModule,

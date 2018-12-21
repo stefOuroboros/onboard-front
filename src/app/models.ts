@@ -63,8 +63,9 @@ export class ProduitFromJson {
 
 export enum Marque {
 
+  "",
   LOADED = 1,
-  MAJUTSUS = 2,
+  MAJUTSU = 2,
   LANDYATCHZ = 3,
   MOONSHINE = 4,
   CARVER = 5,
@@ -72,6 +73,7 @@ export enum Marque {
 }
 
 export enum Discipline {
+  "",
   DANCING = 1,
   CRUISING = 2,
   DOWNHILL = 3,

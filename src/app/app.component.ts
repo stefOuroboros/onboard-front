@@ -14,11 +14,7 @@ import {Utilisateur} from './auth/auth.domains';
       <div class="jumbotron">
         <h2 class="h1 h1-responsive">On Board</h2>
         <search [obs_visiteur_courant]="utilisateurConnecte"></search>
-        <div>
-          <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">{{(utilisateurConnecte | async).prenom}} {{(utilisateurConnecte | async).nom}}</span><br>
-          <span *ngIf="!(utilisateurConnecte | async).estAnonyme()">({{(utilisateurConnecte | async).roles}})</span>
-          <app-menu [obs_visiteur_courant]="utilisateurConnecte"></app-menu>
-        </div>
+        <app-menu [obs_visiteur_courant]="utilisateurConnecte"></app-menu>
       </div>
       <router-outlet></router-outlet>
     <div>

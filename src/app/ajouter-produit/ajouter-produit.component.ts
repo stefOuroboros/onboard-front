@@ -14,7 +14,7 @@ export class MonForm{
   poids:number;
   largeurRoues:number;
   empatement:number;
-  marque:Marque;
+  marque: string;
   discipline:Discipline;
   description:string;
   actif:boolean;
@@ -31,7 +31,7 @@ export class AjouterProduitComponent implements OnInit {
   monForm:MonForm;
   keys: string[];
   keysDiscipline: string[];
-  @Input() marques = Marque;
+  marques : string;
   @Input() disciplines = Discipline
 
 

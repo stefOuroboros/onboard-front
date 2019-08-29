@@ -22,7 +22,7 @@ export class ProduitsServices {
   }
 
   ajouterUnProduit(reference: string, nom: string, prix: number, photo: string, quantite: number, longueur: number,
-    largeur: number, poids: number, largeurRoues: number, empatement: number, marque: Marque, discipline: Discipline,
+    largeur: number, poids: number, largeurRoues: number, empatement: number, marque: string, discipline: Discipline,
     description: string, actif: boolean): void {
     const URL_BACKEND = environment.baseUrl + 'produits';
     console.log(nom)
@@ -46,9 +46,9 @@ export class ProduitsServices {
 
 
   modifierUnProduit(produit :Produit):void {
-    const URL_BACKEND = environment.baseUrl + `produits/modifier/${produit.reference}`;
+    const URL_BACKEND = environment.baseUrl + `produits/edit/${produit.reference}`;
    this._http.post(URL_BACKEND, produit ,
     {headers: new HttpHeaders({ "Content-Type": "application/json"})}).toPromise().then(response => console.log(response),
     error => console.log("Erreur", error));
-  } // modifie une produit selon le nom du produit
+  } // modifie une produit selon la référence du produit
 }

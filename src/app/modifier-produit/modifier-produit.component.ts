@@ -33,7 +33,7 @@ export class ModifierProduitComponent implements OnInit {
 
   submit(){
    this._serv.modifierUnProduit(this.produit);
-   this.routerCol.navigate(['accueil']);
+   this.routerCol.navigate(['modifier']);
   }
 
 }

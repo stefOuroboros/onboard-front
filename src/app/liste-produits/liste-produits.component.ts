@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Utilisateur } from '../auth/auth.domains';
 import { AuthService } from '../auth/auth.service';
 import { PassageInfoService } from '../passage-info.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-produits',
@@ -18,7 +19,7 @@ export class ListeProduitsComponent implements OnInit {
   @Input() obs_visiteur_courant:Observable<Utilisateur>;
   visiteur_courant: Utilisateur;
 
-  constructor(private _produitsServices: ProduitsServices, private _authService: AuthService, private _panierService: PanierService, private _passageInfoService: PassageInfoService) {
+  constructor(private _produitsServices: ProduitsServices, private _router: Router, private _authService: AuthService, private _panierService: PanierService, private _passageInfoService: PassageInfoService) {
     this.visiteur_courant = new Utilisateur({nom: "", prenom: "", email: "", motDePasse:"", roles: []});
 
   }
@@ -33,8 +34,9 @@ export class ListeProduitsComponent implements OnInit {
     this._produitsServices.deleteUnProduit(produitASupprimer.reference).subscribe()
   }
 
-  modifier(produitAModifier:Produit){
+  modify(produitAModifier:Produit){
     sessionStorage.setItem("selectedProduit", JSON.stringify(produitAModifier));
+    this._router.navigate(['modifier']);
   }
 
   ajouterAuPanier(prod:Produit){

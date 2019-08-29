@@ -7,7 +7,7 @@ export class Produit {
   photos: string;
   quantite: number;
   description: string;
-  marque: Marque;
+  marque: string;
   discipline: Discipline;
   longueur: number;
   largeur: number;
@@ -28,7 +28,7 @@ export class ProduitFromJson {
   prix: number;
   photos: string[];
   quantite: number;
-  marque: Marque;
+  marque: string;
   discipline: Discipline;
   longueur: number;
   largeur: number;
@@ -39,7 +39,7 @@ export class ProduitFromJson {
 
 
   // tslint:disable-next-line:max-line-length
-  constructor(reference: string, nom: string, prix: number, photos: string[], quantite: number, marque: Marque, discipline: Discipline, longueur: number,
+  constructor(reference: string, nom: string, prix: number, photos: string[], quantite: number, marque: string, discipline: Discipline, longueur: number,
     largeur: number,
     poids: number,
     empatement: number,
@@ -61,15 +61,11 @@ export class ProduitFromJson {
   }
 }
 
-export enum Marque {
-
-  "",
-  LOADED = 1,
-  MAJUTSU = 2,
-  LANDYATCHZ = 3,
-  MOONSHINE = 4,
-  CARVER = 5,
-  LUCALONGBOARD = 6
+export class Marque {
+  nom: string;
+  constructor(params: any) {
+    Object.assign(this, params);
+  }
 }
 
 export enum Discipline {

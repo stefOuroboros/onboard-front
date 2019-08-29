@@ -1,12 +1,13 @@
 <div>
   <h1>Modifier un produit</h1>
+  <h4>Référence du produit : {{produit.reference}}</h4>
   <form (ngSubmit)="submit()" #prod="ngForm">
       <input type="hidden" [(ngModel)]="produit.reference" name="reference" class="form-control">
    <!--Nom-->
       <label for="nom">Nom :</label>
       <input [(ngModel)]="produit.nom" name="nom" class="form-control">
       <!--Prix-->
-      <label for="prix">Prix</label>
+      <label for="prix">Prix :</label>
       <input [(ngModel)]="produit.prix" name="prix" class="form-control">
       <!--Photos-->
       <label for="photos">Photos :</label>

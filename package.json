@@ -4,12 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "cross-var ng build --prod --base-href https://$GH_ORG.github.io/$APP_REPO/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prepare-prod": "node prepare-prod.js",
-    "deploy": "cross-var ngh --no-silent --name=jenkins --email=jenkins@jenkins.io --repo=https://$GH_TOKEN@github.com/$GH_ORG/$APP_REPO.git"
+    "deploy": "cross-var ngh --no-silent --name=jenkins --email=jenkins@jenkins.io --repo=https://$GH_TOKEN@github.com/$GH_ORG/$APP_REPO.git",
+    "build": "ng build --prod --base-href https://stefOuroboros.github.io/onboard-front/"
   },
   "private": true,
   "dependencies": {
@@ -67,7 +67,5 @@
     "ts-node": "7.0.1",
     "tslint": "5.11.0",
     "typescript": "3.1.1"
-  },
-  "scripts": {
-    "build": "ng build --prod --base-href https://stefOuroboros.github.io/onboard-front/"}
+  }
 }
